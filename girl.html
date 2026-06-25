@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girl Special Collection | MH phone case</title>
+    
+    <!-- تحسين استدعاء الخطوط للأداء والسرعة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- استدعاء الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background: #ffffff; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #4a4a4a;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: #ffffff;
+            border-bottom: 1px solid #fff0f2;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ff758c;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            color: #ff758c;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 30px;
+            background: #fff5f6;
+            border: 1px solid #ffccd5;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #fff;
+            background: #ff758c;
+            border-color: #ff758c;
+        }
+
+        main {
+            flex: 1;
+            padding: 30px 5%;
+            background: #fffafb;
+        }
+
+        .collection-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .collection-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff758c;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #ffe3e7;
+            border-radius: 24px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 117, 140, 0.03);
+            height: 100%; 
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff758c;
+            box-shadow: 0 15px 30px rgba(255, 117, 140, 0.1);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 280px; 
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff5f6;
+            margin-bottom: 12px;
+            position: relative;
+            cursor: zoom-in;
+        }
+
+        .img-container::before {
+            content: 'Double Tap to Zoom';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(255, 117, 140, 0.9);
+            color: #fff;
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .img-container:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex-grow: 1; 
+        }
+
+        .product-sku {
+            font-size: 10px;
+            color: #a0a0a0;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .product-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 4px;
+            height: 42px; 
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ff758c;
+            margin-bottom: 12px;
+        }
+
+        .model-select-container {
+            margin-bottom: 12px;
+            position: relative;
+            margin-top: auto; 
+        }
+
+        .model-select {
+            width: 100%;
+            padding: 9px 12px;
+            background: #ffffff;
+            border: 1px solid #ffe3e7;
+            border-radius: 12px;
+            color: #4a4a4a;
+            font-size: 12px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            appearance: none; 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .model-select:focus {
+            border-color: #ff758c;
+        }
+
+        .model-select-container::after {
+            content: '\f107'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff758c;
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        .order-btn {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .order-btn:hover {
+            background: linear-gradient(135deg, #ff5372, #ff758c);
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
+        }
+
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.96); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-overlay.active .lightbox-container {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            object-fit: contain;
+            box-shadow: 0 25px 60px rgba(255, 117, 140, 0.08);
+            border: 1px solid #ffe3e7;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #ff758c;
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lightbox-close:hover {
+            background: #ff5372;
+            transform: rotate(90deg);
+        }
+
+        .cart-floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ff758c;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.3);
+            z-index: 99;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cart-floating-btn:hover {
+            transform: scale(1.08);
+            background: #ff5372;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #333333;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #ffffff;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 400;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 380px;
+            height: 100%;
+            background: #ffffff;
+            border-left: 1px solid #ffe3e7;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #ffe3e7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 16px;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-close-btn {
+            background: transparent;
+            border: none;
+            color: #a0a0a0;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cart-close-btn:hover {
+            color: #ff758c;
+        }
+
+        .cart-items-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .empty-cart-text {
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fffafb;
+            padding: 10px;
+            border-radius: 16px;
+            border: 1px solid #ffe3e7;
+        }
+
+        .cart-item-img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #ffe3e7;
+            background: #ffffff;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-meta {
+            font-size: 11px;
+            color: #a0a0a0;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-price {
+            font-size: 12px;
+            font-weight: 700;
+            color: #ff758c;
+        }
+
+        .remove-item-btn {
+            background: transparent;
+            border: none;
+            color: #a0a0a0;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .remove-item-btn:hover {
+            color: #ff758c;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #ffe3e7;
+            background: #ffffff;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .total-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #7a7a7a;
+        }
+
+        .total-amount {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff758c;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #25d366; 
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #1fba58;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            main { padding: 20px 4%; }
+            .page-title { font-size: 1.8rem; }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+
+            .product-card { padding: 8px; border-radius: 18px; }
+            .img-container { height: 190px; border-radius: 14px; margin-bottom: 8px; }
+            
+            .img-container::before {
+                content: 'Tap 2x to View'; 
+                font-size: 9px;
+                padding: 3px 8px;
+            }
+
+            .product-name { font-size: 13px; height: 36px; }
+            .product-price { font-size: 12px; margin-bottom: 8px; }
+            .model-select { padding: 7px 24px 7px 10px; font-size: 11px; border-radius: 10px; }
+            .order-btn { padding: 8px; font-size: 11px; border-radius: 10px; }
+
+            .lightbox-close {
+                top: auto;
+                bottom: -55px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .cart-drawer {
+                width: 100%;
+                right: -100%;
+            }
+            .cart-floating-btn {
+                bottom: 15px;
+                right: 15px;
+                width: 52px;
+                height: 52px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <span class="logo-text">Girl Collection</span>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+    </header>
+
+    <main>
+        <div class="collection-header">
+            <span class="collection-tag">Elegant Styles</span>
+            <h1 class="page-title">Suit your femininity</h1>
+        </div>
+        <div class="products-grid" id="girl-grid-container"></div>
+    </main>
+
+    <button class="cart-floating-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <div class="cart-badge" id="cart-count">0</div>
+    </button>
+
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-shopping-cart"></i> Mon Panier</h3>
+            <button class="cart-close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items-container" id="cart-items-list"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span class="total-label">Total:</span>
+                <span class="total-amount" id="cart-total-price">0 DH</span>
+            </div>
+            <button class="checkout-btn" onclick="sendCartToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Envoyer la commande
+            </button>
+        </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-container">
+            <button class="lightbox-close" onclick="forceCloseLightbox()"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="Preview" id="lightbox-img" class="lightbox-img">
+        </div>
+    </div>
+
+    <script>
+        const MY_WHATSAPP_NUMBER = "212781387522"; 
+
+        // تـم إصـلاح هـذه الـمـصـفـوفـة بـالـكـامـل (إغلاق القوس عند GRL-006 وإضافة الفواصل)
+        const productsData = [
+            { id: "GRL-001", name: "Coquette Purple Bow", price: "60 DH", image: "girl1.jpg", models: ["iPhone 11", "iPhone 13", "iPhone 14"] },
+            { id: "GRL-002", name: "Cute Pink Bow", price: "75 DH", image: "girl2.jpg", models: ["iPhone 12", "iPhone 12 Pro"] },
+            { id: "GRL-003", name: "Pink Leopard Case", price: "60 DH", image: "girl3.jpg", models: ["iPhone 13", "iPhone 14"] },
+            { id: "GRL-004", name: "Pink crumpled texture", price: "80 DH", image: "girl4.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
+            { id: "GRL-005", name: "Luxury Pink GUESS", price: "80 DH", image: "girl5.jpg", models: ["iPhone 14 Pro"] },
+            { id: "GRL-006", name: "Luxury Black GUESS", price: "80 DH", image: "girl6.jpg", models: ["iPhone 14 Pro Max"] },
+            { id: "GRL-007", name: "Pink  Elegance PRADA", price: "90 DH", image: "girl7.jpg", models: ["iPhone 16 Pro"] },
+            { id: "GRL-008", name: "Cute Pink hurts", price: "60 DH", image: "girl8.jpg", models: ["iPhone 11"] }
+        ];
+
+        let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
+        const gridContainer = document.getElementById('girl-grid-container');
+        
+        productsData.forEach((product, index) => {
+            let optionsHTML = "";
+            product.models.forEach(model => { optionsHTML += `<option value="${model}">${model}</option>`; });
+
+            const cardHTML = `
+                <div class="product-card">
+                    <div class="img-container" ondblclick="openLightbox('${product.image}')">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-sku">Code: ${product.id}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                        <div class="model-select-container">
+                            <select id="select-${index}" class="model-select">${optionsHTML}</select>
+                        </div>
+                        <button class="order-btn" onclick="addToCart(${index}, '${product.name}', '${product.id}', '${product.image}', '${product.price}')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+            gridContainer.innerHTML += cardHTML;
+        });
+
+        updateCartUI();
+
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox(event) {
+            const container = document.querySelector('.lightbox-container');
+            if (!container.contains(event.target)) {
+                forceCloseLightbox();
+            }
+        }
+
+        function forceCloseLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('open');
+            document.getElementById('cart-overlay').classList.toggle('active');
+        }
+
+        function addToCart(index, productName, productId, productImage, priceText) {
+            const selectElement = document.getElementById(`select-${index}`);
+            const selectedModel = selectElement.value;
+            const priceNumber = parseInt(priceText.replace(/[^0-9]/g, ''));
+            
+            const cartItem = {
+                id: productId,
+                name: productName,
+                price: priceNumber,
+                priceText: priceText,
+                model: selectedModel,
+                img: productImage
+            };
+
+            shoppingCart.push(cartItem);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+
+            updateCartUI();
+            toggleCart(); 
+        }
+
+        function removeItem(index) {
+            shoppingCart.splice(index, 1);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = shoppingCart.length;
+            const itemsContainer = document.getElementById('cart-items-list');
+            itemsContainer.innerHTML = "";
+
+            if (shoppingCart.length === 0) {
+                itemsContainer.innerHTML = `<p class="empty-cart-text">Votre panier est vide.</p>`;
+                document.getElementById('cart-total-price').innerText = "0 DH";
+                return;
+            }
+
+            let totalSum = 0;
+            shoppingCart.forEach((item, index) => {
+                totalSum += item.price;
+                itemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-meta">Modèle: ${item.model}</div>
+                            <div class="cart-item-price">${item.priceText}</div>
+                        </div>
+                        <button class="remove-item-btn" onclick="removeItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>`;
+            });
+            document.getElementById('cart-total-price').innerText = totalSum + " DH";
+        }
+
+        function sendCartToWhatsApp() {
+            if (shoppingCart.length === 0) { alert("السلة فارغة!"); return; }
+            
+            let message = `Bonjour My MH phone case, I want to order these items:\n\n`;
+            let total = 0;
+            
+            shoppingCart.forEach((item, index) => {
+                total += item.price;
+                const fullImgUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '') + item.img;
+                
+                message += `🔹 *Item #${index + 1}:*\n• 📦 *Product:* ${item.name}\n• 📱 *Model:* ${item.model}\n• 💰 *Price:* ${item.priceText}\n• 🔢 *Code:* [ ${item.id} ]\n• 📸 *Link:* ${fullImgUrl}\n\n`;
+            });
+            
+            message += `-----------------------------------------\n🏆 *Total Order Amount:* ${total} DH\n-----------------------------------------`;
+            
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Special Collection | My MH phone case</title>
+    <!-- استدعاء خط أوربيترون الخاص بالأنمي والألعاب -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: #0d0e12; /* خلفية سوداء عميقة تناسب ثيم الأنمي */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff; /* نصوص بيضاء */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: #13151a;
+            border-bottom: 2px solid #ff3344; /* خط أحمر ناري أسفل الهيدر */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff3344;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #ffffff, #ff3344);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-btn {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 8px;
+            background: #1c1f26;
+            border: 1px solid #2d323f;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #000000;
+            border-color: #ff3344;
+            background: #ff3344; /* يتحول للأحمر عند التمرير */
+        }
+
+        main {
+            flex: 1;
+            padding: 30px 5%;
+            background: #0d0e12; 
+        }
+
+        .collection-header {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .collection-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff3344;
+            font-weight: 900;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        /* ----------------------------------------- */
+        /* شبكة المنتجات الأنمي والقياسات المضبوطة */
+        /* ----------------------------------------- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .product-card {
+            background: #13151a;
+            border: 1px solid #2d323f;
+            border-radius: 16px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%; /* ثبات الارتفاع منعاً للتعربز */
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff3344;
+            /* تأثير توهج نيون أنمي فخم */
+            box-shadow: 0 10px 25px rgba(255, 51, 68, 0.15); 
+        }
+
+        .img-container {
+            width: 100%;
+            height: 280px; 
+            border-radius: 10px;
+            overflow: hidden;
+            background: #1c1f26;
+            margin-bottom: 12px;
+            position: relative;
+            cursor: zoom-in;
+            border: 1px solid #2d323f;
+        }
+
+        .img-container::before {
+            content: 'Double Tap to Zoom';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(255, 51, 68, 0.9); /* خلفية التلميح باللون الأحمر */
+            color: #fff;
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            opacity: 0;
+            transition: 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .img-container:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .product-sku {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 10px;
+            color: #727b91;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 6px;
+            
+            /* تثبيت الارتفاع لسطرين لضمان المساواة المطلقة */
+            height: 44px; 
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 15px;
+            font-weight: 900;
+            color: #ffcc00; /* لون أصفر ذهبي للمقاس والسعر */
+            margin-bottom: 12px;
+        }
+
+        /* قائمة اختيار الموديلات الأنمي */
+        .model-select-container {
+            margin-bottom: 12px;
+            position: relative;
+            margin-top: auto; /* دفع العناصر للأسفل لتتساوى الأزرار */
+        }
+
+        .model-select {
+            width: 100%;
+            padding: 10px 12px;
+            background: #1c1f26;
+            border: 1px solid #2d323f;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .model-select:focus {
+            border-color: #ff3344;
+            background: #252933;
+        }
+
+        /* سهم الخيارات مخصص باللون الأحمر الناري */
+        .model-select-container::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff3344;
+            pointer-events: none;
+            font-size: 13px;
+        }
+
+        .model-select option {
+            background: #13151a;
+            color: #ffffff;
+        }
+
+        /* زر الطلب الناري المحدث للاستخدام مع السلة */
+        .order-btn {
+            background: #ff3344; 
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .product-card:hover .order-btn {
+            background: #e62233;
+            box-shadow: 0 5px 15px rgba(255, 51, 68, 0.4);
+        }
+
+        /* ----------------------------------------- */
+        /* نافذة تكبير الصور (LightBox) */
+        /* ----------------------------------------- */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 14, 18, 0.95); /* خلفية سوداء سينمائية واضحة */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-overlay.active .lightbox-container {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            border: 2px solid #ff3344;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #ff3344;
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lightbox-close:hover {
+            background: #ffffff;
+            color: #ff3344;
+            transform: rotate(90deg);
+        }
+
+        /* ----------------------------------------- */
+        /* 🛒 ستايلات السلة المتكاملة والمشتركة 🛒 */
+        /* ----------------------------------------- */
+        .cart-floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ff3344;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(255, 51, 68, 0.4);
+            z-index: 99;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cart-floating-btn:hover {
+            transform: scale(1.08);
+            background: #e62233;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #ffcc00;
+            color: #0d0e12;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #13151a;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 14, 18, 0.8);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 400;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 380px;
+            height: 100%;
+            background: #13151a;
+            border-left: 2px solid #ff3344;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #2d323f;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-close-btn {
+            background: transparent;
+            border: none;
+            color: #727b91;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cart-close-btn:hover {
+            color: #ff3344;
+        }
+
+        .cart-items-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .empty-cart-text {
+            text-align: center;
+            color: #727b91;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #1c1f26;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #2d323f;
+        }
+
+        .cart-item-img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #2d323f;
+            background: #13151a;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-meta {
+            font-size: 11px;
+            color: #727b91;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            color: #ffcc00;
+        }
+
+        .remove-item-btn {
+            background: transparent;
+            border: none;
+            color: #727b91;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .remove-item-btn:hover {
+            color: #ff3344;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #2d323f;
+            background: #13151a;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .total-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #727b91;
+        }
+
+        .total-amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            color: #ffcc00;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #25d366; /* لون الواتساب المميز */
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #1fba58;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* التجاوب للهواتف الذكية */
+        @media (max-width: 600px) {
+            main { padding: 20px 4%; }
+            .page-title { font-size: 1.6rem; }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+
+            .product-card { padding: 8px; border-radius: 12px; }
+            .img-container { height: 190px; border-radius: 8px; margin-bottom: 8px; }
+            
+            .img-container::before {
+                content: 'Tap 2x to View'; 
+                font-size: 9px;
+                padding: 3px 8px;
+            }
+
+            .product-name { font-size: 13px; height: 38px; }
+            .product-price { font-size: 12px; margin-bottom: 8px; }
+            .model-select { padding: 7px 24px 7px 10px; font-size: 11px; border-radius: 6px; }
+            .order-btn { padding: 8px; font-size: 11px; border-radius: 6px; }
+            
+            .lightbox-close {
+                top: auto;
+                bottom: -55px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            .lightbox-close:hover {
+                transform: translateX(50%) rotate(90deg);
+            }
+
+            /* تجاوب السلة على الموبايل لملء الشاشة */
+            .cart-drawer {
+                width: 100%;
+                right: -100%;
+            }
+            .cart-floating-btn {
+                bottom: 15px;
+                right: 15px;
+                width: 52px;
+                height: 52px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <span class="logo-text">ANIME COLLECTION</span>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> الرئيسية</a>
+    </header>
+
+    <main>
+        <div class="collection-header">
+            <span class="collection-tag">Special Otaku Edition</span>
+            <h1 class="page-title">Choose your power</h1>
+        </div>
+
+        <div class="products-grid" id="anime-grid-container"></div>
+    </main>
+
+    <!-- زر السلة العائم -->
+    <button class="cart-floating-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <div class="cart-badge" id="cart-count">0</div>
+    </button>
+
+    <!-- لوحة السلة الجانبية والخلفية المعتمة -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-shopping-cart"></i> Mon Panier</h3>
+            <button class="cart-close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items-container" id="cart-items-list">
+            <!-- المنتجات تضاف هنا تلقائياً -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span class="total-label">Total:</span>
+                <span class="total-amount" id="cart-total-price">0 DH</span>
+            </div>
+            <button class="checkout-btn" onclick="sendCartToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Envoyer la commande
+            </button>
+        </div>
+    </div>
+
+    <!-- نافذة تكبير الصور المخفية -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-container">
+            <button class="lightbox-close" onclick="forceCloseLightbox()"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="Preview" id="lightbox-img" class="lightbox-img">
+        </div>
+    </div>
+
+    <script>
+        const MY_WHATSAPP_NUMBER = "212781387522"; 
+
+        // قائمة الموديلات الموحدة لجميع الهواتف بناءً على السكرينات المرفقة
+        const commonModels = [
+            "iPhone 11", "iPhone 11 Pro", "iPhone 11 Pro Max", 
+            "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", 
+            "iPhone 13", "iPhone 13 Pro Max", 
+            "iPhone 14", "iPhone 14 Pro Max", 
+            "iPhone 15 Pro Max", "iPhone XR", "iPhone XS Max"
+        ];
+
+        // مصفوفة المنتجات: الـ 9 بطاقات الحقيقية + 10 خانات مخفية للاحتياط
+        const productsData = [
+            // البطاقات الـ 9 الفعلية المأخوذة من الكود الخاص بك بالصور
+            { id: "ANM-001", name: "Gojo Satoru", price: "69 DH", image: "an1.jpg", models: commonModels },
+            { id: "ANM-002", name: "Monkey-D-Luffy", price: "69 DH", image: "an2.jpg", models: commonModels },
+            { id: "ANM-003", name: "Narutto", price: "69 DH", image: "an3.jpg", models: commonModels },
+            { id: "ANM-004", name: "Narutto fan art", price: "69 DH", image: "an4.jpg", models: commonModels },
+            { id: "ANM-005", name: "Kakashi sensei", price: "69 DH", image: "an5.jpg", models: commonModels },
+            { id: "ANM-006", name: "Luffy Gear 5", price: "69 DH", image: "an6.jpg", models: commonModels },
+            { id: "ANM-007", name: "Roronoa Zoro", price: "69 DH", image: "an7.jpg", models: commonModels },
+            { id: "ANM-008", name: "Luffy And Zoro", price: "69 DH", image: "an8.jpg", models: commonModels },
+            { id: "ANM-009", name: "One Peace", price: "69 DH", image: "hidden", models: commonModels },
+            
+            // 🛑 الـ 10 خانات المستقلة والمخفية (تأخذ القيمة "hidden")
+            // بمجرد تغيير كلمة "hidden" إلى اسم الصورة الجديدة وتعديل الاسم، ستظهر فوراً في الموقع!
+            { id: "ANM-011", name: "Reserved Slot 1", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-012", name: "Reserved Slot 2", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-013", name: "Reserved Slot 3", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-014", name: "Reserved Slot 4", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-015", name: "Reserved Slot 5", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-016", name: "Reserved Slot 6", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-017", name: "Reserved Slot 7", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-018", name: "Reserved Slot 8", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-019", name: "Reserved Slot 9", price: "69 DH", image: "hidden", models: commonModels },
+            { id: "ANM-020", name: "Reserved Slot 10", price: "69 DH", image: "hidden", models: commonModels }
+        ];
+
+        // 🔄 قراءة السلة من الـ LocalStorage
+        let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
+        const gridContainer = document.getElementById('anime-grid-container');
+        
+        // بناء المنتجات ديناميكياً مع تصفية الخانات المخفية
+        productsData.forEach((product, index) => {
+            // شرط الحماية السري: إذا كانت الصورة تساوي "hidden" لن يتم عرض الكارد نهائياً للمستخدم
+            if (product.image === "hidden") return;
+
+            let optionsHTML = "";
+            product.models.forEach(model => { optionsHTML += `<option value="${model}">${model}</option>`; });
+
+            const cardHTML = `
+                <div class="product-card">
+                    <div class="img-container" ondblclick="openLightbox('${product.image}')">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-sku">Code: ${product.id}</div>
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price}</div>
+                        
+                        <div class="model-select-container">
+                            <select id="select-${index}" class="model-select">${optionsHTML}</select>
+                        </div>
+
+                        <button class="order-btn" onclick="addToCart(${index}, '${product.name}', '${product.id}', '${product.image}', '${product.price}')">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+            gridContainer.innerHTML += cardHTML;
+        });
+
+        // مزامنة واجهة السلة عند تحميل الصفحة
+        updateCartUI();
+
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox(event) {
+            const container = document.querySelector('.lightbox-container');
+            if (!container.contains(event.target)) { forceCloseLightbox(); }
+        }
+
+        function forceCloseLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('open');
+            document.getElementById('cart-overlay').classList.toggle('active');
+        }
+
+        function addToCart(index, productName, productId, productImage, priceText) {
+            const selectElement = document.getElementById(`select-${index}`);
+            const selectedModel = selectElement.value;
+            const priceNumber = parseInt(priceText.replace(/[^0-9]/g, ''));
+            
+            const cartItem = {
+                id: productId,
+                name: productName,
+                price: priceNumber,
+                priceText: priceText,
+                model: selectedModel,
+                img: productImage
+            };
+
+            shoppingCart.push(cartItem);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+
+            updateCartUI();
+            toggleCart(); 
+        }
+
+        function removeItem(index) {
+            shoppingCart.splice(index, 1);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = shoppingCart.length;
+            const itemsContainer = document.getElementById('cart-items-list');
+            itemsContainer.innerHTML = "";
+
+            if (shoppingCart.length === 0) {
+                itemsContainer.innerHTML = `<p class="empty-cart-text">Votre panier est vide.</p>`;
+                document.getElementById('cart-total-price').innerText = "0 DH";
+                return;
+            }
+
+            let totalSum = 0;
+            shoppingCart.forEach((item, index) => {
+                totalSum += item.price;
+                itemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-meta">Modèle: ${item.model}</div>
+                            <div class="cart-item-price">${item.priceText}</div>
+                        </div>
+                        <button class="remove-item-btn" onclick="removeItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>`;
+            });
+            document.getElementById('cart-total-price').innerText = totalSum + " DH";
+        }
+
+        function sendCartToWhatsApp() {
+            if (shoppingCart.length === 0) { alert("السلة فارغة!"); return; }
+            
+            let message = `Bonjour My MH phone case, I want to order these items:\n\n`;
+            let total = 0;
+            
+            shoppingCart.forEach((item, index) => {
+                total += item.price;
+                const fullImgUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '') + item.img;
+                
+                message += `🔹 *Item #${index + 1}:*\n• 📦 *Product:* ${item.name}\n• 📱 *Model:* ${item.model}\n• 💰 *Price:* ${item.priceText}\n• 🔢 *Code:* [ ${item.id} ]\n• 📸 *Link:* ${fullImgUrl}\n\n`;
+            });
+            
+            message += `-----------------------------------------\n🏆 *Total Order Amount:* ${total} DH\n-----------------------------------------`;
+            
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

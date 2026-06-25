@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MH phone case</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="iphone14.html" as="document">
+<link rel="preload" href="iphone15.html" as="document">
+<!-- كرر الأمر لبقية الملفات الخمسة -->
+
+    
+    <script>
+        const translations = {
+            en: {
+                dir: "ltr",
+                heroTitle: "DRESS YOUR PHONE IN <span>STYLE</span>",
+                heroSubtitle: "Discover premium protection and unique designs crafted specifically for your phone",
+                catTitle1: "MH COLLECTION",
+                catDesc1: "Discover more unique designs and special collections",
+                catTitle2: "Silicon cases",
+                catDesc2: "Flexible covers in all colors.",
+                catTitle3: "Santa Barbara",
+                catDesc3: "For lovers of luxury",
+                catTitle4: "Anime Covers",
+                catDesc4: "The best premium anime collection ever 🔥",
+                catTitle5: "Goyard",
+                catDesc5: "For lovers of GOYARD",
+                catTitle6: "Girl Collection",
+                catDesc6: "Covers that suit your femininity and add elegance to your life.",
+                btnText: "Explore now",
+                footFeat1: "Fast Shipping to All Cities",
+                footFeat2: "Cash on Delivery (COD)",
+                footFeat3: "24/7 WhatsApp Support",
+                footRights: "All rights reserved."
+            },
+            fr: {
+                dir: "ltr",
+                heroTitle: "HABILLEZ VOTRE TÉLÉPHONE AVEC <span>STYLE</span>",
+                heroSubtitle: "Découvrez une protection haut de gamme et des designs uniques conçus spécialement pour votre téléphone",
+                catTitle1: "MH COLLECTION",
+                catDesc1: "Découvrez plus de designs uniques et de collections spéciales",
+                catTitle2: "Coques en Silicone",
+                catDesc2: "Coques souples de toutes les couleurs.",
+                catTitle3: "Santa Barbara",
+                catDesc3: "Pour les amateurs de luxe",
+                catTitle4: "Coques Anime",
+                catDesc4: "La meilleure collection d'anime premium de tous les temps 🔥",
+                catTitle5: "Goyard",
+                catDesc5: "Pour les amoureux de GOYARD",
+                catTitle6: "Collection Fille",
+                catDesc6: "Des coques qui correspondent à votre féminité et ajoutent de l'élégance à votre vie.",
+                btnText: "Explorer maintenant",
+                footFeat1: "Livraison rapide dans toutes les villes",
+                footFeat2: "Paiement à la livraison (COD)",
+                footFeat3: "Support WhatsApp 24h/24 et 7j/7",
+                footRights: "Tous droits réservés."
+            },
+            ar: {
+                dir: "rtl",
+                heroTitle: "ألبس هاتفك <span>أناقة</span> كاملة",
+                heroSubtitle: "اكتشف الحماية الفائقة والتصاميم الفريدة المصنوعة خصيصاً لهاتفك",
+                catTitle1: "MH COLLECTION",
+                catDesc1: "اكتشف المزيد من التصاميم الفريدة والتشكيلات الخاصة",
+                catTitle2: "أغطية السيليكون",
+                catDesc2: "أغطية مرنة بجميع الألوان.",
+                catTitle3: "سانتا باربرا",
+                catDesc3: "لعشاق الفخامة والتميز",
+                catTitle4: "أغطية الأنمي",
+                catDesc4: "أفضل تشكيلة أنمي ممتازة على الإطلاق 🔥",
+                catTitle5: "غويارد",
+                catDesc5: "لعشاق ومحبي ماركة غويارد",
+                catTitle6: "تشكيلة البنات",
+                catDesc6: "أغطية تناسب أنوثتك وتضفي لمسة من الأناقة على حياتك.",
+                btnText: "اكتشف الآن",
+                footFeat1: "شحن سريع لجميع المدن المغربية",
+                footFeat2: "الدفع عند الاستلام (COD)",
+                footFeat3: "دعم فني عبر الواتساب 24/7",
+                footRights: "جميع الحقوق محفوظة."
+            }
+        };
+
+        function changeLanguage(lang) {
+            sessionStorage.setItem('preferredLang', lang);
+            const currentData = translations[lang];
+            
+            document.documentElement.dir = currentData.dir;
+            document.documentElement.lang = lang;
+            
+            if (document.body) {
+                if (currentData.dir === "rtl") {
+                    document.body.classList.add('rtl-mode');
+                    document.querySelectorAll('.category-link-text i').forEach(i => {
+                        i.className = "fa-solid fa-arrow-left";
+                    });
+                } else {
+                    document.body.classList.remove('rtl-mode');
+                    document.querySelectorAll('.category-link-text i').forEach(i => {
+                        i.className = "fa-solid fa-arrow-right";
+                    });
+                }
+            }
+
+            const updateElements = () => {
+                const heroTitleEl = document.getElementById('heroTitle');
+                const heroSubtitleEl = document.getElementById('heroSubtitle');
+                
+                if (heroTitleEl) heroTitleEl.innerHTML = currentData.heroTitle;
+                if (heroSubtitleEl) heroSubtitleEl.innerText = currentData.heroSubtitle;
+                
+                for (let i = 1; i <= 6; i++) {
+                    const tEl = document.getElementById(`catTitle${i}`);
+                    const dEl = document.getElementById(`catDesc${i}`);
+                    if (tEl) tEl.innerText = currentData[`catTitle${i}`];
+                    if (dEl) dEl.innerText = currentData[`catDesc${i}`];
+                }
+
+                document.querySelectorAll('.btn-text').forEach(btn => {
+                    btn.innerText = currentData.btnText;
+                });
+
+                const f1 = document.getElementById('footFeat1');
+                const f2 = document.getElementById('footFeat2');
+                const f3 = document.getElementById('footFeat3');
+                const fr = document.getElementById('footRights');
+
+                if (f1) f1.innerText = currentData.footFeat1;
+                if (f2) f2.innerText = currentData.footFeat2;
+                if (f3) f3.innerText = currentData.footFeat3;
+                if (fr) fr.innerText = currentData.footRights;
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', updateElements);
+            } else {
+                updateElements();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = sessionStorage.getItem('preferredLang') || 'en';
+            const selectEl = document.getElementById('languageSelect');
+            if (selectEl) {
+                selectEl.value = savedLang;
+            }
+            changeLanguage(savedLang);
+        });
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #ffffff; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #111111; 
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 18px 8%;
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px; 
+        }
+
+        .logo-img {
+            width: 48px; 
+            height: 48px;
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 2px solid #e63946; 
+            box-shadow: 0 4px 10px rgba(230, 57, 70, 0.15);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #111111;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 6px 12px;
+            border-radius: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .lang-switcher i {
+            color: #555555;
+            font-size: 16px;
+        }
+
+        .lang-select {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            text-align: center;
+            background: #fafafa; 
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #111111;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title span {
+            color: #e63946;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 45px;
+            max-width: 600px;
+            font-weight: 500;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 10px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 360px; 
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; 
+            padding: 25px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0; 
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .category-card .bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .category-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: 2;
+        }
+
+        .category-content {
+            position: relative;
+            z-index: 3; 
+            text-align: left; 
+        }
+
+        .category-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .category-desc {
+            font-size: 13px;
+            color: #e2e8f0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .category-link-text {
+            font-size: 13px;
+            color: #ffffff; 
+            background: #e63946; 
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            border-color: #e63946; 
+            box-shadow: 0 20px 35px rgba(230, 57, 70, 0.12);
+        }
+
+        .category-card:hover .bg-img {
+            transform: scale(1.05); 
+        }
+
+        .category-card:hover .category-link-text {
+            background: #111111; 
+            color: #ffffff;
+            padding-right: 20px;
+        }
+
+        footer {
+            background: #ffffff;
+            border-top: 1px solid #eeeeee;
+            padding: 40px 5% 20px 5%;
+            width: 100%;
+        }
+
+        .footer-features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eeeeee;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #444444;
+            font-weight: 600;
+        }
+
+        .feature-item i {
+            color: #e63946; 
+            font-size: 20px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #777777;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            color: #555555;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: #e63946;
+        }
+
+        body.rtl-mode {
+            text-align: right;
+        }
+        body.rtl-mode .category-content {
+            text-align: right;
+        }
+        body.rtl-mode .feature-item {
+            flex-direction: row-reverse;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 40px 15px;
+            }
+            .hero-title {
+                font-size: 2.1rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 35px;
+            }
+            .category-card {
+                height: 320px; 
+            }
+            .footer-features {
+                flex-direction: column;
+                gap: 18px;
+                padding-left: 10px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <span class="logo-text">MH my phone case</span>
+        </div>
+
+        <div class="lang-switcher">
+            <i class="fa-solid fa-earth-americas"></i>
+            <select class="lang-select" id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="hero-title" id="heroTitle">DRESS YOUR PHONE IN <span>STYLE</span></h1>
+        <p class="hero-subtitle" id="heroSubtitle">Discover premium protection and unique designs crafted specifically for your phone</p>
+
+        <div class="categories-grid">
+
+            <!-- 1. MH COLLECTION (Other Choices سابقا) -->
+            <a href="other.html" class="category-card">
+                <img src="other0.jpg" class="bg-img"> 
+                <div class="category-content">
+                   <div class="category-title" id="catTitle1">MH COLLECTION</div> 
+                   <div class="category-desc" id="catDesc1">Discover more unique designs and special collections</div>
+                   <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- 2. Silicon cases -->
+            <a href="silicone.html" class="category-card">
+                <img src="silicon.jpg" alt="" class="bg-img">
+                <div class="category-content">
+                    <div class="category-title" id="catTitle2">Silicon cases</div>
+                    <div class="category-desc" id="catDesc2">Flexible covers in all colors.</div>
+                    <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- 3. Santa Barbara -->        
+            <a href="santa.html" class="category-card">
+                <img src="santa0.jpg" class="bg-img">
+                <div class="category-content">
+                   <div class="category-title" id="catTitle3">Santa Barbara</div> 
+                   <div class="category-desc" id="catDesc3">For lovers of luxury</div>
+                   <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- 4. Anime Covers -->
+            <a href="anime.html" class="category-card">
+                <img src="1.jpg" alt="Anime Collection" class="bg-img">
+                <div class="category-content">
+                    <div class="category-title" id="catTitle4">Anime Covers</div>
+                    <div class="category-desc" id="catDesc4">The best premium anime collection ever 🔥</div>
+                    <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- 5. Goyard -->              
+            <a href="goyard.html" class="category-card">
+                <img src="goyard0.jpg" class="bg-img">
+                <div class="category-content">
+                   <div class="category-title" id="catTitle5">Goyard</div> 
+                   <div class="category-desc" id="catDesc5">For lovers of GOYARD</div>
+                   <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- 6. Girl Collection -->
+            <a href="girl.html" class="category-card">
+                <img src="girl0.jpg" alt="Armor Protection" class="bg-img">
+                <div class="category-content">
+                    <div class="category-title" id="catTitle6">Girl Collection</div>
+                    <div class="category-desc" id="catDesc6">Covers that suit your femininity and add elegance to your life.</div>
+                    <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-features">
+            <div class="feature-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span id="footFeat1">Fast Shipping to All Cities</span>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <span id="footFeat2">Cash on Delivery (COD)</span>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-headset"></i>
+                <span id="footFeat3">24/7 WhatsApp Support</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; 2026 MH my phone case. <span id="footRights">All rights reserved.</span>
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/mh_my.phone.case_/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@mh.myphonecase?_r=1&_t=ZS-97P6BFdZlCi"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/212781387522?text=Bonjour%20MH%20phone%20case%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20produits" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
