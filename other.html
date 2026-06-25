@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Special Premium Collection | MH phone case</title>
     <link rel="preload" href="iphone14.html" as="document">
-<link rel="preload" href="iphone15.html" as="document">
-<!-- كرر الأمر لبقية الملفات الخمسة -->
+    <link rel="preload" href="iphone15.html" as="document">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght=500;600;700&family=Playfair+Display:ital,wght=1,500;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-      
         * {
             margin: 0;
             padding: 0;
@@ -35,8 +33,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: #111111; /* هيدر داكن ومميز */
-            border-bottom: 1px solid #d4af37; /* لمسة ذهبية */
+            background: #111111; 
+            border-bottom: 1px solid #d4af37; 
             position: sticky;
             top: 0;
             z-index: 100;
@@ -51,7 +49,7 @@
         .logo-text {
             font-size: 16px;
             font-weight: 700;
-            color: #d4af37; /* لون ذهبي */
+            color: #d4af37; 
             letter-spacing: 0.5px;
         }
 
@@ -79,7 +77,7 @@
         main {
             flex: 1;
             padding: 30px 5%;
-            background: #fdfbf7; /* خلفية عاجية دافئة ومختلفة */
+            background: #fdfbf7; 
         }
 
         .collection-header {
@@ -103,6 +101,63 @@
             font-size: 2.2rem;
             font-weight: 600;
             color: #111111;
+        }
+
+        /* تنسيق قسم الفلترة الجديد */
+        .filter-section {
+            max-width: 480px;
+            margin: 0 auto 30px auto;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .filter-section label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 10px;
+        }
+
+        .filter-select-wrapper {
+            position: relative;
+        }
+
+        .filter-select-wrapper::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d4af37;
+            pointer-events: none;
+            font-size: 14px;
+        }
+
+        #main-phone-filter {
+    width: 100%;
+    padding: 12px 16px;
+    padding-right: 35px; /* يعطي مساحة للسهم الذهبي على اليمين */
+    background: #ffffff;
+    border: 1px solid #eedfc2;
+    border-radius: 14px;
+    color: #111111;
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.02);
+    transition: 0.2s;
+    text-align: left; /* ليصبح متناسقاً مع الاختيارات الإنجليزية */
+}
+
+
+        #main-phone-filter:focus {
+            border-color: #d4af37;
         }
 
         .products-grid {
@@ -141,7 +196,6 @@
             cursor: zoom-in;
         }
 
-      
         .img-container::before {
             content: 'Double Tap to Zoom';
             position: absolute;
@@ -190,7 +244,7 @@
             font-size: 11px;
             color: #8c8575;
             font-weight: 700;
-            margin-bottom: 10px; /* يعطي مسافة خفيفة ومباشرة نحو السعر */
+            margin-bottom: 10px; 
             letter-spacing: 1px;
         }
 
@@ -240,7 +294,6 @@
             font-size: 12px;
         }
 
-      
         .actions-row {
             display: flex;
             flex-direction: column;
@@ -294,7 +347,6 @@
             border-color: #111111;
         }
 
-        /* نافذة تكبير الصور (LightBox) */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -365,7 +417,6 @@
             transform: rotate(90deg);
         }
 
-       
         .cart-floating-btn {
             position: fixed;
             bottom: 25px;
@@ -604,7 +655,6 @@
             background: #1fba58;
         }
 
-        /* تعديلات الهواتف الذكية (اثنان بجانب بعضهما) */
         @media (max-width: 600px) {
             main { padding: 20px 4%; }
             .page-title { font-size: 1.8rem; }
@@ -642,7 +692,7 @@
 
     <header>
         <div class="logo-container">
-            <span class="logo-text">MH  Collection</span>
+            <span class="logo-text">MH Collection</span>
         </div>
         <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
     </header>
@@ -652,6 +702,19 @@
             <span class="collection-tag">Distinctive designs</span>
             <h1 class="page-title">Exclusive and unique covers</h1>
         </div>
+
+        <!-- قسم فلترة الهواتف الجديد -->
+                <!-- قسم فلترة الهواتف الجديد مترجم للإنجليزي -->
+        <div class="filter-section">
+            <label for="main-phone-filter"><i class="fa-solid fa-mobile-screen-button"></i> Choose your phone:</label>
+            <div class="filter-select-wrapper">
+                <select id="main-phone-filter" onchange="filterProductsByPhone()">
+                    <option value="all">✨ All Models</option>
+                </select>
+            </div>
+        </div>
+
+
         <div class="products-grid" id="special-grid-container"></div>
     </main>
 
@@ -668,9 +731,7 @@
             <h3><i class="fa-solid fa-shopping-cart"></i> Mon Panier</h3>
             <button class="cart-close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="cart-items-container" id="cart-items-list">
-            <!-- المنتجات تضاف هنا تلقائياً -->
-        </div>
+        <div class="cart-items-container" id="cart-items-list"></div>
         <div class="cart-footer">
             <div class="cart-total-row">
                 <span class="total-label">Total:</span>
@@ -691,69 +752,67 @@
     </div>
 
     <script>
-        // أضف رقم الواتساب الخاص بك هنا لكي تعمل الأزرار والسلة بنجاح
         const MY_WHATSAPP_NUMBER = "212781387522";
 
         const productsData = [
-            
-    { id: "SPC-001", price: "85 DH", image: "ot1.jpg", models: ["iPhone 13 Pro"] },
-    { id: "SPC-002", price: "85 DH", image: "ot2.jpg", models: ["iPhone 13 Pro Max"] },
-    { id: "SPC-003", price: "85 DH", image: "ot3.jpg", models: ["iPhone 13 pro Max", "iPhone 17  pro"] },
-    { id: "SPC-004", price: "85 DH", image: "ot4.jpg", models: ["iphone 17 pro max", "iphone 16 pro max"] },
-    { id: "SPC-005", price: "85 DH", image: "ot5.jpg", models: ["iphone 13 pro max"] },
-    { id: "SPC-006", price: "85 DH", image: "ot6.jpg", models: ["iphone 17"] },
-    { id: "SPC-007", price: "85 DH", image: "ot7.jpg", models: ["iphone 17 pro max"] },
-    { id: "SPC-008", price: "85 DH", image: "ot8.jpg", models: ["iphone 13 pro","iphone 11"] },
-    { id: "SPC-009", price: "85 DH", image: "ot9.jpg", models: ["iphone 17 pro"] },
-    { id: "SPC-010", price: "85 DH", image: "ot10.jpg", models: ["iphone 16", "iphone 12 pro max"] },
-    { id: "SPC-011", price: "85 DH", image: "ot11.jpg", models: ["iphone 16"] },
-    { id: "SPC-012", price: "85 DH", image: "ot12.jpg", models: ["iphone 16 pro", "iphone 11 pro max"] },
-    { id: "SPC-013", price: "85 DH", image: "ot13.jpg", models: ["iphone 12", "iphone 12 pro", "iphone 15"] },
-    { id: "SPC-014", price: "85 DH", image: "ot14.jpg", models: ["iphone 15 pro"] },
-    { id: "SPC-015", price: "85 DH", image: "ot15.jpg", models: ["iphone 15", "iphone 11"] },
-    { id: "SPC-016", price: "85 DH", image: "ot16.jpg", models: ["iphone 12 pro max", "iphone 11"] },
-    { id: "SPC-017", price: "85 DH", image: "ot17.jpg", models: ["iphone 12 pro max", "iphone 11"] },
-  
-    { id: "SPC-018", price: "85 DH", image: "ot18.jpg", models: ["iphone 14 pro max"] },
-    { id: "SPC-019", price: "85 DH", image: "ot19.jpg", models: ["iphone 14 pro"] },
-    { id: "SPC-020", price: "85 DH", image: "ot20.jpg", models: ["iphone 13", "iphone 14"] },
-
-    { id: "SPC-021", price: "80 DH", image: "ot21.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
-    { id: "SPC-022", price: "80 DH", image: "ot22.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
-    { id: "SPC-023", price: "80 DH", image: "ot23.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
-    { id: "SPC-024", price: "80 DH", image: "ot24.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
-    { id: "SPC-025", price: "80 DH", image: "ot25.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
-    { id: "SPC-026", price: "80 DH", image: "ot26.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
-    { id: "SPC-027", price: "70 DH", image: "ot27.jpg", models: ["iphone 13","iphone 14"] },
-    { id: "SPC-028", price: "70 DH", image: "ot28.jpg", models: ["iphone 11 pro max"] },
-    { id: "SPC-029", price: "70 DH", image: "ot29.jpg", models: ["iphone 11 pro"] },
-    { id: "SPC-030", price: "90 DH", image: "ot30.jpg", models: ["iphone 13","iphone 13 pro max","iphone 13 pro","iphone 14 pro max","iphone 16 pro max"] },
-    { id: "SPC-031", price: "70 DH", image: "ot31.jpg", models: ["iphone 11","iphone 11 pro max","iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max"] },
-    { id: "SPC-032", price: "80 DH", image: "ot32.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
-    { id: "SPC-033", price: "90 DH", image: "ot33.jpg", models: ["iphone 11","iphone 11 pro max","iphone 11 pro","iphone 12 pro","iphone 12","iphone 14","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 15","iphone 15 pro max","iphone 15 pro","iphone 14 pro","iphone 12 pro max","iphone 14 pro max ","iphone 16 pro max","iphone 16 pro","iphone 17 pro max","iphone 16 pro max","iphone 17","iphone 17 pro"] },
-    { id: "SPC-034", price: "90 DH", image: "ot34.jpg", models: ["iphone 13","iphone 14","iphone 15 pro"] },
-    { id: "SPC-035", price: "90 DH", image: "ot35.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
-    { id: "SPC-036", price: "90 DH", image: "ot36.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
-    
-    { id: "SPC-037", price: "90 DH", image: "ot37.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
-    { id: "SPC-038", price: "90 DH", image: "ot38.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
-    { id: "SPC-039", price: "80 DH", image: "ot39.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
-    { id: "SPC-040", price: "80 DH", image: "ot40.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] }
-];
-
+            { id: "SPC-001", price: "85 DH", image: "ot1.jpg", models: ["iPhone 13 Pro"] },
+            { id: "SPC-002", price: "85 DH", image: "ot2.jpg", models: ["iPhone 13 Pro Max"] },
+            { id: "SPC-003", price: "85 DH", image: "ot3.jpg", models: ["iPhone 13 Pro Max", "iPhone 17 Pro"] },
+            { id: "SPC-004", price: "85 DH", image: "ot4.jpg", models: ["iPhone 17", "iPhone 16 Pro Max"] },
+            { id: "SPC-005", price: "85 DH", image: "ot5.jpg", models: ["iPhone 13 Pro Max"] },
+            { id: "SPC-006", price: "85 DH", image: "ot6.jpg", models: ["iPhone 17"] },
+            { id: "SPC-007", price: "85 DH", image: "ot7.jpg", models: ["iPhone 17 Pro Max"] },
+            { id: "SPC-008", price: "85 DH", image: "ot8.jpg", models: ["iPhone 13 Pro","iPhone 11"] },
+            { id: "SPC-009", price: "85 DH", image: "ot9.jpg", models: ["iPhone 17 Pro"] },
+            { id: "SPC-010", price: "85 DH", image: "ot10.jpg", models: ["iPhone 16", "iPhone 12 Pro Max"] },
+            { id: "SPC-011", price: "85 DH", image: "ot11.jpg", models: ["iPhone 16"] },
+            { id: "SPC-012", price: "85 DH", image: "ot12.jpg", models: ["iPhone 16 Pro", "iPhone 11 Pro Max"] },
+            { id: "SPC-013", price: "85 DH", image: "ot13.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 15"] },
+            { id: "SPC-014", price: "85 DH", image: "ot14.jpg", models: ["iPhone 15 Pro"] },
+            { id: "SPC-015", price: "85 DH", image: "ot15.jpg", models: ["iPhone 15", "iPhone 11"] },
+            { id: "SPC-016", price: "85 DH", image: "ot16.jpg", models: ["iPhone 12 Pro Max", "iPhone 11"] },
+            { id: "SPC-017", price: "85 DH", image: "ot17.jpg", models: ["iPhone 12 Pro Max", "iPhone 11"] },
+            { id: "SPC-018", price: "85 DH", image: "ot18.jpg", models: ["iPhone 14 Pro Max"] },
+            { id: "SPC-019", price: "85 DH", image: "ot19.jpg", models: ["iPhone 14 Pro"] },
+            { id: "SPC-020", price: "85 DH", image: "ot20.jpg", models: ["iPhone 13", "iPhone 14"] },
+            { id: "SPC-021", price: "80 DH", image: "ot21.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
+            { id: "SPC-022", price: "80 DH", image: "ot22.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
+            { id: "SPC-023", price: "80 DH", image: "ot23.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
+            { id: "SPC-024", price: "80 DH", image: "ot24.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
+            { id: "SPC-025", price: "80 DH", image: "ot25.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
+            { id: "SPC-026", price: "80 DH", image: "ot26.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
+            { id: "SPC-027", price: "70 DH", image: "ot27.jpg", models: ["iPhone 13","iPhone 14"] },
+            { id: "SPC-028", price: "70 DH", image: "ot28.jpg", models: ["iPhone 11 Pro Max"] },
+            { id: "SPC-029", price: "70 DH", image: "ot29.jpg", models: ["iPhone 11 Pro"] },
+            { id: "SPC-030", price: "90 DH", image: "ot30.jpg", models: ["iPhone 13","iPhone 13 Pro Max","iPhone 13 Pro","iPhone 14 Pro Max","iPhone 16 Pro Max"] },
+            { id: "SPC-031", price: "70 DH", image: "ot31.jpg", models: ["iPhone 11","iPhone 11 Pro Max","iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max"] },
+            { id: "SPC-032", price: "80 DH", image: "ot32.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
+            { id: "SPC-033", price: "90 DH", image: "ot33.jpg", models: ["iPhone 11","iPhone 11 Pro Max","iPhone 11 Pro","iPhone 12 Pro","iPhone 12","iPhone 14","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 15","iPhone 15 Pro Max","iPhone 15 Pro","iPhone 14 Pro","iPhone 12 Pro Max","iPhone 14 Pro Max","iPhone 16 Pro Max","iPhone 16 Pro","iPhone 17 Pro Max","iPhone 17","iPhone 17 Pro"] },
+            { id: "SPC-034", price: "90 DH", image: "ot34.jpg", models: ["iPhone 13","iPhone 14","iPhone 15 Pro"] },
+            { id: "SPC-035", price: "90 DH", image: "ot35.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
+            { id: "SPC-036", price: "90 DH", image: "ot36.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
+            { id: "SPC-037", price: "90 DH", image: "ot37.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
+            { id: "SPC-038", price: "90 DH", image: "ot38.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
+            { id: "SPC-039", price: "80 DH", image: "ot39.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
+            { id: "SPC-040", price: "80 DH", image: "ot40.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] }
+        ];
 
         let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
         const gridContainer = document.getElementById('special-grid-container');
         
+        // حلقة لبناء واجهة المنتجات وكروت العرض
         productsData.forEach((product, index) => {
-            // منع ظهور المنتجات التي تحتوي على الحالة hidden
             if (product.status === "hidden") return;
 
             let optionsHTML = "";
-            product.models.forEach(model => { optionsHTML += `<option value="${model}">${model}</option>`; });
+            product.models.forEach(model => { 
+                // توحيد شكل النصوص المكتوبة لتظهر بشكل جميل
+                const formattedModel = model.trim().replace(/^iphone/i, 'iPhone');
+                optionsHTML += `<option value="${formattedModel}">${formattedModel}</option>`; 
+            });
 
             const cardHTML = `
-                <div class="product-card">
+                <div class="product-card" id="product-card-${index}">
                     <div class="img-container" ondblclick="openLightbox('${product.image}')">
                         <img src="${product.image}" alt="Phone Case">
                     </div>
@@ -776,6 +835,54 @@
             `;
             gridContainer.innerHTML += cardHTML;
         });
+
+        // --- توليد خيارات الفلتر تلقائياً من موديلات المنتجات المتاحة ---
+        const uniqueModelsSet = new Set();
+        productsData.forEach(p => {
+            if (p.status !== "hidden") {
+                p.models.forEach(m => {
+                    // جعل الحرف الأول كبير لإلغاء أي تكرار ناتج عن الحروف الكبيرة والصغيرة في المصفوفة
+                    const fixedName = m.trim().replace(/^iphone/i, 'iPhone');
+                    uniqueModelsSet.add(fixedName);
+                });
+            }
+        });
+
+        // ترتيب أسماء الهواتف منطقياً قبل وضعها في الفلتر
+        const sortedModels = Array.from(uniqueModelsSet).sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}));
+        const mainFilterSelect = document.getElementById('main-phone-filter');
+        sortedModels.forEach(model => {
+            mainFilterSelect.innerHTML += `<option value="${model}">${model}</option>`;
+        });
+
+        // --- دالة الفلترة الذكية ---
+        function filterProductsByPhone() {
+            const selectedModel = document.getElementById('main-phone-filter').value;
+            
+            productsData.forEach((product, index) => {
+                const card = document.getElementById(`product-card-${index}`);
+                if (!card) return;
+
+                // تحويل الموديلات داخل المنتج الحالي لنفس الصيغة الموحدة للمقارنة
+                const cleanProductModels = product.models.map(m => m.trim().replace(/^iphone/i, 'iPhone'));
+
+                if (selectedModel === "all") {
+                    card.style.display = "flex";
+                } else {
+                    if (cleanProductModels.includes(selectedModel)) {
+                        card.style.display = "flex";
+                        // تحويل خيار المنتج الداخلي تلقائياً ليتوافق مع اختيار الفلتر العلوي
+                        const cardSelect = document.getElementById(`select-${index}`);
+                        if (cardSelect) cardSelect.value = selectedModel;
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            });
+        }
+
+        // تحضير الـ UI للسلة عند بدء تحميل الصفحة
+        updateCartUI();
 
         function openLightbox(imageSrc) {
             const lightbox = document.getElementById('lightbox');
