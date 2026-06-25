@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MH SILICON COLLECTION</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="preload" href="iphone14.html" as="document">
+<link rel="preload" href="iphone15.html" as="document">
+<!-- كرر الأمر لبقية الملفات الخمسة -->
+  
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #fcfbfa;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(10, 31, 28, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(223, 183, 108, 0.08) 0px, transparent 50%),
+                linear-gradient(180deg, #ffffff 0%, #f4f2ee 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #0a1f1c;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(223, 183, 108, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #dfb76c;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0a1f1c;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            color: #5c6662;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 30px;
+            background: #ffffff;
+            border: 1px solid #dfb76c;
+            transition: 0.2s ease;
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
+            background: #0a1f1c;
+            border-color: #0a1f1c;
+        }
+
+        .hero-folder {
+            background: linear-gradient(135deg, #05100e 0%, #0a1f1c 100%);
+            color: #ffffff;
+            padding: 40px 5%;
+            text-align: center;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            box-shadow: 0 20px 40px rgba(10, 31, 28, 0.15);
+            margin-bottom: 30px;
+            border-bottom: 3px solid #dfb76c;
+        }
+
+        .promo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(90deg, #dfb76c, #c2994d);
+            color: #0a1f1c;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background: #ff3344;
+            color: white;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 8px;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        main {
+            flex: 1;
+            padding: 0 5% 40px 5%;
+        }
+
+        .hidden-until-ready {
+            display: none !important;
+        }
+
+        .grid-series {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .series-box {
+            background: #ffffff;
+            border: 1px solid rgba(223, 183, 108, 0.4);
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(10, 31, 28, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+        }
+
+        .series-box::after {
+            content: '';
+            position: absolute;
+            font-size: 5rem;
+            color: rgba(223, 183, 108, 0.03);
+            bottom: -15px;
+            left: -10px;
+        }
+
+        .series-box:hover {
+            transform: translateY(-4px);
+            border-color: #dfb76c;
+            box-shadow: 0 12px 25px rgba(10, 31, 28, 0.1);
+            background: #ffffff;
+        }
+
+        .series-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0a1f1c;
+            margin-bottom: 4px;
+        }
+
+        .series-subtitle {
+            font-size: 12px;
+            color: #dfb76c;
+            font-weight: 700;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 16, 14, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 15px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border: 2px solid #dfb76c;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            position: relative;
+            transform: scale(0.92);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #faf9f6;
+            border: 1px solid #edeae4;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5c6662;
+            font-size: 16px;
+            z-index: 10;
+        }
+
+        .close-modal-btn:hover {
+            color: #ff3344;
+            background: #ffffff;
+        }
+
+        .modal-image-container {
+            width: 100%;
+            height: 240px;
+            background: #faf9f6;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #edeae4;
+            overflow: hidden;
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .modal-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .modal-image-container::before {
+            content: "💡 Double clic pour zoomer";
+            position: absolute;
+            bottom: 6px;
+            font-size: 10px;
+            background: rgba(10, 31, 28, 0.6);
+            color: #ffffff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            pointer-events: none;
+            font-weight: 700;
+            opacity: 0.8;
+        }
+
+        .zoom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 16, 14, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            cursor: zoom-out;
+        }
+
+        .zoom-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .zoom-overlay img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-overlay.active img {
+            transform: scale(1);
+        }
+
+        .modal-product-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0a1f1c;
+            margin-bottom: 4px;
+        }
+
+        .modal-product-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #dfb76c;
+            margin-bottom: 12px;
+        }
+
+        .modal-color-status {
+            font-size: 14px;
+            color: #5c6662;
+            margin-bottom: 8px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .modal-color-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: #faf9f6;
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid #edeae4;
+        }
+
+        .color-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 1px #dfb76c;
+            transition: 0.2s;
+        }
+
+        .color-dot.active {
+            box-shadow: 0 0 0 2.5px #0a1f1c;
+            transform: scale(1.1);
+        }
+
+        .modal-btn-cart {
+            width: 100%;
+            background: linear-gradient(135deg, #05100e 0%, #0a1f1c 100%);
+            color: #dfb76c;
+            border: 1px solid #dfb76c;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .modal-btn-cart:hover {
+            background: #dfb76c;
+            color: #0a1f1c;
+        }
+
+        /* ==================== تصاميم السلة الفاخرة المشتركة ==================== */
+        .cart-floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #05100e 0%, #0a1f1c 100%);
+            color: #dfb76c;
+            border: 1px solid #dfb76c;
+            outline: none;
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(10, 31, 28, 0.25);
+            z-index: 99;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .cart-floating-btn:hover {
+            transform: scale(1.08);
+            background: #dfb76c;
+            color: #0a1f1c;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #dfb76c;
+            color: #0a1f1c;
+            font-size: 11px;
+            font-weight: 800;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #fcfbfa;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 16, 14, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1100;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 380px;
+            height: 100%;
+            background: #ffffff;
+            border-left: 2px solid #dfb76c;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            z-index: 1200;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #edeae4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf9f6;
+        }
+
+        .cart-header h3 {
+            font-size: 16px;
+            color: #0a1f1c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+        }
+
+        .cart-close-btn {
+            background: transparent;
+            border: none;
+            color: #5c6662;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-close-btn:hover {
+            color: #ff3344;
+        }
+
+        .cart-items-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .empty-cart-text {
+            text-align: center;
+            color: #5c6662;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #faf9f6;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid #edeae4;
+        }
+
+        .cart-item-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid #edeae4;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            text-align: right;
+        }
+
+        .cart-item-name {
+            font-size: 13px;
+            font-weight: 800;
+            color: #0a1f1c;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-meta {
+            font-size: 11px;
+            color: #5c6662;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-price {
+            font-size: 13px;
+            font-weight: 800;
+            color: #dfb76c;
+        }
+
+        .remove-item-btn {
+            background: transparent;
+            border: none;
+            color: #5c6662;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        .remove-item-btn:hover {
+            color: #ff3344;
+        }
+
+        .offer-applied-notice {
+            background: #e8f5e9;
+            border: 1px dashed #2e7d32;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #edeae4;
+            background: #ffffff;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .total-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #5c6662;
+        }
+
+        .total-amount {
+            font-size: 18px;
+            font-weight: 800;
+            color: #dfb76c;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #25d366; 
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #1fba58;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .grid-series { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .series-box { padding: 12px; min-height: 100px; border-radius: 14px; }
+            .series-title { font-size: 14px; }
+            .series-subtitle { font-size: 10px; }
+            .modal-card { padding: 15px; border-radius: 20px; }
+            .modal-image-container { height: 190px; }
+            .cart-drawer { width: 100%; right: -100%; }
+            .cart-floating-btn { bottom: 15px; right: 15px; width: 52px; height: 52px; font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo" class="logo-img">
+            <span class="logo-text">MH SILICON COLLECTION</span>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> الرئيسية</a>
+    </header>
+
+    <div class="hero-folder">
+        <div class="promo-badge"><i class="fa-solid fa-shield-halved"></i> أفضل أنواع كفرات السيليكون</div>
+        <h2>MH SILICON COLLECTION</h2>
+        <p>اختر جهازك الأيفون واحصل على ماتريد من كفرات السيليكون باللون الذي يعجبك و أثمنة جد مناسبة !</p>
+        <div class="offer-badge"><i class="fa-solid fa-fire"></i> عرض خاص: 3 كفرات بـ 99 درهم فقط!</div>
+    </div>
+
+    <main>
+        <div class="grid-series hidden-until-ready" id="series-grid-container"></div>
+    </main>
+
+    <!-- نافذة التخصيص المنبثقة -->
+    <div class="modal-overlay" id="product-modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-card">
+            <button class="close-modal-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-image-container" ondblclick="zoomImage()">
+                <img src="placeholder.jpg" id="modal-product-img" alt="Product Case">
+            </div>
+
+            <div class="modal-product-name" id="modal-title">type de votre iPhone</div>
+            <div class="modal-product-price" id="modal-price">39 DH</div>
+            
+            <div class="modal-color-status" id="modal-color-text"></div>
+            <div class="modal-color-selector" id="modal-colors-wrapper"></div>
+
+            <button class="modal-btn-cart" onclick="addCurrentToCart()">
+                <i class="fa-solid fa-cart-plus"></i> إضافة إلى السلة / Ajouter au panier
+            </button>
+        </div>
+    </div>
+
+    <!-- نافذة ملء الشاشة لعرض الصورة المكبرة -->
+    <div class="zoom-overlay" id="image-zoom-overlay" onclick="closeZoom()">
+        <img src="" id="zoomed-img-element" alt="Zoomed Product View">
+    </div>
+
+    <!-- زر السلة العائمة المحدث -->
+    <button class="cart-floating-btn hidden-until-ready" id="cart-floating-button" onclick="toggleCart()">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <div class="cart-badge" id="cart-count">0</div>
+    </button>
+
+    <!-- الـ Drawers والـ Overlays المحدثة للسلة -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-shopping-cart"></i> السلة / Mon Panier</h3>
+            <button class="cart-close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items-container" id="cart-items-list"></div>
+        <div class="cart-footer">
+            <div id="offer-notice-zone"></div>
+            <div class="cart-total-row">
+                <span class="total-label">الحساب الإجمالي / Total:</span>
+                <span class="total-amount" id="cart-total-price">0 DH</span>
+            </div>
+            <button class="checkout-btn" onclick="sendCartToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> تأكيد الطلب / Envoyer la commande
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const MY_WHATSAPP_NUMBER = "212781387522";
+
+        let isReady = true;           
+        let showAllSeries = false;    
+        let showAllColors = false;    
+
+        const productsData = [
+            {
+                modelName: "iPhone X Max",
+                seriesKey: "iPhone X Series",
+                isHidden: false,
+                colors: [
+                    { name: "Green", hfxName: "Green HFX", hex: "#00b002", price: "39 DH", img: "xmax.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 11",
+                seriesKey: "iPhone 11 Series",
+                isHidden: true, 
+                colors: [
+                    { name: "Black", hfxName: "Black HFX", hex: "#000000", price: "39 DH", img: "images/11_black.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 12 / iPhone 12 Pro",
+                seriesKey: "iPhone 12 / 12 Pro Series",
+                isHidden: false,
+                colors: [
+                    { name: "White", hfxName: "White HFX", hex: "#ffffff", price: "39 DH", img: "12b.jpg", isHidden: false },
+                    { name: "Grey", hfxName: "Grey HFX", hex: "grey", price: "39 DH", img: "12e.jpg", isHidden: false },
+                    { name: "Green", hfxName: "Green HFX", hex: "#0c5100", price: "39 DH", img: "12c.jpg", isHidden: false },
+                    { name: "Navy Blue", hfxName: "Navy Blue HFX", hex: "#1b0056", price: "39 DH", img: "12a.jpg", isHidden: false },
+                    { name: "Red", hfxName: "Red HFX", hex: "#da1b00", price: "39 DH", img: "12d.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 12 Pro Max",
+                seriesKey: "iPhone 12 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Brown", hfxName: "Brown HFX", hex: "#773600", price: "39 DH", img: "12max2.jpg", isHidden: false },
+                    { name: "Wine / Burgundy", hfxName: "Wine HFX", hex: "#771e45", price: "39 DH", img: "12max1.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 13 / iPhone 14",
+                seriesKey: "iPhone 13 / 14 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Teal / Cyan", hfxName: "Teal HFX", hex: "#366c63", price: "39 DH", img: "13a.jpg", isHidden: false },
+                    { name: "Dark Green", hfxName: "Dark Green HFX", hex: "#292d29", price: "39 DH", img: "13b.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 13 Pro",
+                seriesKey: "iPhone 13 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Pink / Magenta", hfxName: "Pink HFX", hex: "#ff0088", price: "39 DH", img: "13p1.jpg", isHidden: false },
+                    { name: "Hidden Color", hfxName: "Hidden Color", hex: "#ff00ff", price: "39 DH", img: "images/hidden.jpg", isHidden: true }
+                ]
+            },
+            {
+                modelName: "iPhone 13 Pro Max",
+                seriesKey: "iPhone 13 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Pink / Red", hfxName: "Pink/Red HFX", hex: "#ff0049", price: "39 DH", img: "13max2.jpg", isHidden: false },
+                    { name: "Red", hfxName: "Red HFX", hex: "red", price: "39 DH", img: "13max1.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 14 Pro Max",
+                seriesKey: "iPhone 14 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Dark Blue", hfxName: "Dark Blue HFX", hex: "#2A364F", price: "39 DH", img: "14m2.jpg", isHidden: false },
+                    { name: "Khaki / Beige", hfxName: "Khaki/Beige HFX", hex: "#B4A98C", price: "39 DH", img: "14m4.jpg", isHidden: false },
+                    { name: "Teal Blue", hfxName: "Teal Blue HFX", hex: "#2C7A83", price: "39 DH", img: "14m9.jpg", isHidden: false },
+                    { name: "Olive / Khaki", hfxName: "Olive/Khaki HFX", hex: "#D6CD9B", price: "39 DH", img: "14m5.jpg", isHidden: false },
+                    { name: "Light Grey", hfxName: "Light Grey HFX", hex: "#e1e1e1", price: "39 DH", img: "14m3.jpg", isHidden: false },
+                    { name: "Royal Blue", hfxName: "Royal Blue HFX", hex: "#1052CE", price: "39 DH", img: "14m8.jpg", isHidden: false },
+                    { name: "Green", hfxName: "Green HFX", hex: "green", price: "39 DH", img: "14m10.jpg", isHidden: false },
+                    { name: "Dark Charcoal", hfxName: "Dark Charcoal HFX", hex: "#161616", price: "39 DH", img: "14m1.jpg", isHidden: false },
+                    { name: "Blue", hfxName: "Blue HFX", hex: "#0B478A", price: "39 DH", img: "14m7.jpg", isHidden: false },
+                    { name: "Red", hfxName: "Red HFX", hex: "red", price: "39 DH", img: "14m6.jpg", isHidden: false },
+                    { name: "Black", hfxName: "Black HFX", hex: "#1c1c1c", price: "39 DH", img: "14m11.jpg", isHidden: true }
+                ]
+            },
+            {
+                modelName: "iPhone 15 Pro Max",
+                seriesKey: "iPhone 15 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Off White", hfxName: "Off White HFX", hex: "#f5f5f5", price: "39 DH", img: "15m10.jpg", isHidden: false },
+                    { name: "Brown / Brick", hfxName: "Brown/Brick HFX", hex: "#A85355", price: "39 DH", img: "15m3.jpg", isHidden: false },
+                    { name: "Black", hfxName: "Black HFX", hex: "black", price: "39 DH", img: "15m6.jpg", isHidden: false },
+                    { name: "Green", hfxName: "Green HFX", hex: "#25623E", price: "39 DH", img: "15m7.jpg", isHidden: false },
+                    { name: "Teal Blue", hfxName: "Teal Blue HFX", hex: "#0B6C77", price: "39 DH", img: "15m5.jpg", isHidden: false },
+                    { name: "Pink / Rose", hfxName: "Pink/Rose HFX", hex: "#D48C94", price: "39 DH", img: "15m9.jpg", isHidden: false },
+                    { name: "Khaki / Beige", hfxName: "Khaki/Beige HFX", hex: "#DDD4B1", price: "39 DH", img: "15m1.jpg", isHidden: false },
+                    { name: "Red", hfxName: "Red HFX", hex: "red", price: "39 DH", img: "15m2.jpg", isHidden: false },
+                    { name: "Purple", hfxName: "Purple HFX", hex: "purple", price: "39 DH", img: "15m8.jpg", isHidden: false },
+                    { name: "Blue", hfxName: "Blue HFX", hex: "#0E4E9B", price: "39 DH", img: "15m4.jpg", isHidden: false },
+                    { name: "Chocolate Brown", hfxName: "Chocolate Brown HFX", hex: "#5c4033", price: "39 DH", img: "15m11.jpg", isHidden: true }
+                ]
+            },
+            {
+                modelName: "iPhone 16 Pro Max",
+                seriesKey: "iPhone 16 Series",
+                isHidden: false,
+                colors: [
+                    { name: "White", hfxName: "White HFX", hex: "#ffffff", price: "39 DH", img: "16m4.jpg", isHidden: false },
+                    { name: "Crimson / Dark Red", hfxName: "Crimson HFX", hex: "#A8122D", price: "39 DH", img: "16m3.jpg", isHidden: false },
+                    { name: "Red", hfxName: "Red HFX", hex: "red", price: "39 DH", img: "16m6.jpg", isHidden: false },
+                    { name: "Green", hfxName: "Green HFX", hex: "#00C34F", price: "39 DH", img: "16m7.jpg", isHidden: false },
+                    { name: "Blue", hfxName: "Blue HFX", hex: "blue", price: "39 DH", img: "16m5.jpg", isHidden: false },
+                    { name: "Khaki / Beige", hfxName: "Khaki/Beige HFX", hex: "#DDD4B1", price: "39 DH", img: "16m1.jpg", isHidden: false },
+                    { name: "Purple", hfxName: "Purple HFX", hex: "#9B7EE2", price: "39 DH", img: "16m2.jpg", isHidden: false },
+                    { name: "Burgundy / Dark Red", hfxName: "Burgundy HFX", hex: "#ce2029", price: "39 DH", img: "16m8.jpg", isHidden: true }
+                ]
+            },
+            {
+                modelName: "iPhone 17",
+                seriesKey: "iPhone 17 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Pink / Rose", hfxName: "Pink/Rose HFX", hex: "#E37383", price: "39 DH", img: "17m.jpg", isHidden: false }
+                ]
+            },
+            {
+                modelName: "iPhone 17 Pro Max",
+                seriesKey: "iPhone 17 Series",
+                isHidden: false,
+                colors: [
+                    { name: "Off White", hfxName: "Off White HFX", hex: "#E5E3D9", price: "39 DH", img: "17m3.jpg", isHidden: false },
+                    { name: "Brown / Tan", hfxName: "Brown/Tan HFX", hex: "#A9784E", price: "39 DH", img: "17m1.jpg", isHidden: false },
+                    { name: "Orange / Coral", hfxName: "Orange/Coral HFX", hex: "#D84B16", price: "39 DH", img: "17m2.jpg", isHidden: false }
+                ]
+            }
+        ];
+
+        let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
+        let activeProductIndex = null;
+        let activeColorIndex = 0;
+
+        function renderBoxes() {
+            if (isReady) {
+                document.getElementById('series-grid-container').classList.remove('hidden-until-ready');
+                document.getElementById('cart-floating-button').classList.remove('hidden-until-ready');
+            }
+
+            const container = document.getElementById('series-grid-container');
+            container.innerHTML = "";
+            
+            productsData.forEach((product, index) => {
+                if (product.isHidden && !showAllSeries) return;
+
+                container.innerHTML += `
+                    <div class="series-box" onclick="openProductModal(${index})">
+                        <div class="series-title">${product.modelName}</div>
+                        <div class="series-subtitle">${product.seriesKey}</div>
+                    </div>
+                `;
+            });
+            updateCartUI(); 
+        }
+
+        function openProductModal(index) {
+            activeProductIndex = index;
+            const product = productsData[index];
+            document.getElementById('modal-title').innerText = product.modelName;
+            
+            renderModalColors(product.colors);
+            
+            let firstVisibleIdx = product.colors.findIndex(c => !c.isHidden || showAllColors);
+            if(firstVisibleIdx === -1) firstVisibleIdx = 0;
+            
+            selectColorInModal(firstVisibleIdx);
+            document.getElementById('product-modal-overlay').classList.add('active');
+        }
+
+        function renderModalColors(colors) {
+            const wrapper = document.getElementById('modal-colors-wrapper');
+            wrapper.innerHTML = "";
+            colors.forEach((color, idx) => {
+                if (color.isHidden && !showAllColors) return;
+
+                wrapper.innerHTML += `
+                    <div class="color-dot" 
+                         data-idx="${idx}"
+                         style="background-color: ${color.hex}" 
+                         onclick="selectColorInModal(${idx})">
+                    </div>
+                `;
+            });
+        }
+
+        function selectColorInModal(colorIdx) {
+            activeColorIndex = colorIdx;
+            const product = productsData[activeProductIndex];
+            const colorData = product.colors[colorIdx];
+
+            document.getElementById('modal-product-img').src = colorData.img;
+            document.getElementById('modal-price').innerText = colorData.price;
+            
+            let finalColorName = colorData.name || colorData.hfxName;
+            finalColorName = finalColorName.replace(/\bHFX\b/g, '').trim();
+            
+            document.getElementById('modal-color-text').innerHTML = `
+                <strong>${finalColorName} silicon case</strong>
+            `;
+
+            const dots = document.querySelectorAll('#modal-colors-wrapper .color-dot');
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if(parseInt(dot.getAttribute('data-idx')) === colorIdx) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function zoomImage() {
+            const currentImgSrc = document.getElementById('modal-product-img').src;
+            document.getElementById('zoomed-img-element').src = currentImgSrc;
+            document.getElementById('image-zoom-overlay').classList.add('active');
+        }
+
+        function closeZoom() {
+            document.getElementById('image-zoom-overlay').classList.remove('active');
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal-overlay').classList.remove('active');
+        }
+
+        function closeModalOnOverlay(e) {
+            if(e.target.id === "product-modal-overlay") closeModal();
+        }
+
+        function addCurrentToCart() {
+            const product = productsData[activeProductIndex];
+            const colorData = product.colors[activeColorIndex];
+
+            let cleanedColor = (colorData.name || colorData.hfxName).replace(/\bHFX\b/g, '').trim();
+
+            const cartItem = {
+                id: "SIL-CASE", 
+                name: `${product.modelName} (${cleanedColor})`,
+                price: 39, 
+                priceText: colorData.price,
+                model: product.modelName,
+                img: colorData.img,
+                isSilicon: true 
+            };
+
+            shoppingCart.push(cartItem);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+            
+            updateCartUI();
+            closeModal();
+            toggleCart();
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('open');
+            document.getElementById('cart-overlay').classList.toggle('active');
+        }
+
+        function removeItem(idx) {
+            shoppingCart.splice(idx, 1);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+            updateCartUI();
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            let siliconCount = 0;
+
+            shoppingCart.forEach(item => {
+                if (item.isSilicon) {
+                    siliconCount++;
+                } else {
+                    total += item.price; 
+                }
+            });
+
+            let groupsOfThree = Math.floor(siliconCount / 3);
+            let remainder = siliconCount % 3;
+            
+            total += (groupsOfThree * 99) + (remainder * 39);
+            return { total, isOfferApplied: groupsOfThree > 0, siliconCount };
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = shoppingCart.length;
+            const itemsList = document.getElementById('cart-items-list');
+            const noticeZone = document.getElementById('offer-notice-zone');
+            itemsList.innerHTML = "";
+            noticeZone.innerHTML = "";
+
+            if(shoppingCart.length === 0) {
+                itemsList.innerHTML = `<p class="empty-cart-text">السلة فارغة / Votre panier est vide.</p>`;
+                document.getElementById('cart-total-price').innerText = "0 DH";
+                return;
+            }
+
+            shoppingCart.forEach((item, idx) => {
+                let metaText = item.isSilicon ? `Silicon | Color: ${item.name.split('(')[1]?.replace(')', '') || ''}` : `Modèle: ${item.model}`;
+                itemsList.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" class="cart-item-img" alt="${item.model}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-meta">${metaText}</div>
+                            <div class="cart-item-price">${item.priceText}</div>
+                        </div>
+                        <button class="remove-item-btn" onclick="removeItem(${idx})"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+            });
+
+            const result = calculateTotal();
+            document.getElementById('cart-total-price').innerText = result.total + " DH";
+
+            if (result.siliconCount > 0) {
+                if (result.isOfferApplied) {
+                    noticeZone.innerHTML = `<div class="offer-applied-notice"><i class="fa-solid fa-circle-check"></i> تم تطبيق العرض (3 كفرات سيليكون بـ 99 درهم) 🔥</div>`;
+                } else {
+                    let missing = 3 - result.siliconCount;
+                    noticeZone.innerHTML = `<div class="offer-applied-notice" style="background:#fff3e0; border-color:#ffb74d; color:#e65100;"><i class="fa-solid fa-circle-info"></i> أضف ${missing} قطع سيليكون لتفعيل عرض 3 بـ 99 درهم</div>`;
+                }
+            }
+        }
+
+        function sendCartToWhatsApp() {
+            if (shoppingCart.length === 0) return;
+            
+            let message = `Bonjour My MH phone case, I want to order these items:\n\n`;
+            
+            shoppingCart.forEach((item, index) => {
+                const fullImgUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '') + item.img;
+                if (item.isSilicon) {
+                    let colorName = item.name.split('(')[1]?.replace(')', '') || '';
+                    message += `🔹 *Item #${index + 1}:*\n• 📦 *Product:* Silicone Case\n• 📱 *Model:* ${item.model}\n• 🎨 *Color:* ${colorName}\n• 💰 *Price:* 39 DH\n• 📸 *Link:* ${fullImgUrl}\n\n`;
+                } else {
+                    message += `🔹 *Item #${index + 1}:*\n• 📦 *Product:* ${item.name}\n• 📱 *Model:* ${item.model}\n• 💰 *Price:* ${item.priceText}\n• 🔢 *Code:* [ ${item.id} ]\n• 📸 *Link:* ${fullImgUrl}\n\n`;
+                }
+            });
+            
+            const result = calculateTotal();
+            message += `-----------------------------------------\n🏆 *Total Order Amount:* ${result.total} DH\n-----------------------------------------`;
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        window.onload = function() {
+            renderBoxes();
+        };
+    </script>
+</body>
+</html>

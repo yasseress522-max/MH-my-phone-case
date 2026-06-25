@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Premium Collection | MH phone case</title>
+    <link rel="preload" href="iphone14.html" as="document">
+<link rel="preload" href="iphone15.html" as="document">
+<!-- كرر الأمر لبقية الملفات الخمسة -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background: #ffffff; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: #111111; /* هيدر داكن ومميز */
+            border-bottom: 1px solid #d4af37; /* لمسة ذهبية */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #d4af37; /* لون ذهبي */
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 30px;
+            background: #1a1a1a;
+            border: 1px solid #d4af37;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #111111;
+            background: #d4af37;
+            border-color: #d4af37;
+        }
+
+        main {
+            flex: 1;
+            padding: 30px 5%;
+            background: #fdfbf7; /* خلفية عاجية دافئة ومختلفة */
+        }
+
+        .collection-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .collection-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b3922e;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #111111;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #eedfc2;
+            border-radius: 24px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.02);
+            height: 100%; 
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.08);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 280px; 
+            border-radius: 18px;
+            overflow: hidden;
+            background: #faf6ee;
+            margin-bottom: 12px;
+            position: relative;
+            cursor: zoom-in;
+        }
+
+      
+        .img-container::before {
+            content: 'Double Tap to Zoom';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(17, 17, 17, 0.9);
+            color: #d4af37;
+            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            z-index: 10;
+            border: 1px solid #d4af37;
+        }
+
+        .img-container:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex-grow: 1; 
+        }
+
+        .product-sku {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            color: #8c8575;
+            font-weight: 700;
+            margin-bottom: 10px; /* يعطي مسافة خفيفة ومباشرة نحو السعر */
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: #b3922e;
+            margin-bottom: 12px;
+        }
+
+        .model-select-container {
+            margin-bottom: 12px;
+            position: relative;
+            margin-top: auto; 
+        }
+
+        .model-select {
+            width: 100%;
+            padding: 9px 12px;
+            background: #ffffff;
+            border: 1px solid #eedfc2;
+            border-radius: 12px;
+            color: #4a4a4a;
+            font-size: 12px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            appearance: none; 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .model-select:focus {
+            border-color: #d4af37;
+        }
+
+        .model-select-container::after {
+            content: '\f107'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d4af37;
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+      
+        .actions-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .order-btn {
+            background: linear-gradient(135deg, #111111, #2a2a2a);
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: 0.3s;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .order-btn:hover {
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .add-to-cart-btn {
+            background: #ffffff;
+            color: #111111;
+            border: 1px solid #eedfc2;
+            padding: 11px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #faf6ee;
+            border-color: #111111;
+        }
+
+        /* نافذة تكبير الصور (LightBox) */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 17, 17, 0.95); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-container {
+            position: relative;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lightbox-overlay.active .lightbox-container {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            object-fit: contain;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid #d4af37;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #d4af37;
+            color: #111111;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lightbox-close:hover {
+            background: #ffffff;
+            transform: rotate(90deg);
+        }
+
+       
+        .cart-floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #111111;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            outline: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+            z-index: 99;
+            transition: 0.3s ease;
+        }
+
+        .cart-floating-btn:hover {
+            transform: scale(1.05);
+            background: #d4af37;
+            color: #111111;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #ffffff;
+            color: #111111;
+            font-size: 11px;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #d4af37;
+        }
+
+        .cart-overlay-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 400;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .cart-overlay-drawer.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 360px;
+            height: 100%;
+            background: #ffffff;
+            border-left: 1px solid #eedfc2;
+            box-shadow: -10px 0 30px rgba(17,17,17,0.05);
+            z-index: 500;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eedfc2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #111111;
+            color: #d4af37;
+        }
+
+        .cart-header h3 {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cart-close-btn {
+            background: transparent;
+            border: none;
+            color: #d4af37;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cart-close-btn:hover {
+            color: #ffffff;
+        }
+
+        .cart-items-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #fdfbf7;
+        }
+
+        .empty-cart-text {
+            text-align: center;
+            color: #909090;
+            font-size: 13px;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 16px;
+            border: 1px solid #eedfc2;
+        }
+
+        .cart-item-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #eedfc2;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #111111;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-meta {
+            font-size: 11px;
+            color: #666666;
+            margin-bottom: 2px;
+        }
+
+        .cart-item-price {
+            font-size: 12px;
+            font-weight: 700;
+            color: #b3922e;
+        }
+
+        .remove-item-btn {
+            background: transparent;
+            border: none;
+            color: #909090;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .remove-item-btn:hover {
+            color: #ff3344;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #eedfc2;
+            background: #ffffff;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .total-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #666666;
+            text-transform: uppercase;
+        }
+
+        .total-amount {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111111;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #25d366; 
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #1fba58;
+        }
+
+        /* تعديلات الهواتف الذكية (اثنان بجانب بعضهما) */
+        @media (max-width: 600px) {
+            main { padding: 20px 4%; }
+            .page-title { font-size: 1.8rem; }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+
+            .product-card { padding: 8px; border-radius: 18px; }
+            .img-container { height: 190px; border-radius: 14px; margin-bottom: 8px; }
+            
+            .img-container::before {
+                content: 'Tap 2x to View'; 
+                font-size: 9px;
+                padding: 3px 8px;
+            }
+
+            .product-price { font-size: 12px; margin-bottom: 8px; }
+            .model-select { padding: 7px 24px 7px 10px; font-size: 11px; border-radius: 10px; }
+            .actions-row { gap: 6px; }
+            .order-btn, .add-to-cart-btn { padding: 8px; font-size: 11px; border-radius: 10px; }
+
+            .lightbox-close {
+                top: auto;
+                bottom: -55px;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            .cart-drawer { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <span class="logo-text">MH  Collection</span>
+        </div>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+    </header>
+
+    <main>
+        <div class="collection-header">
+            <span class="collection-tag">Distinctive designs</span>
+            <h1 class="page-title">Exclusive and unique covers</h1>
+        </div>
+        <div class="products-grid" id="special-grid-container"></div>
+    </main>
+
+    <!-- 🛒 زر السلة العائم -->
+    <button class="cart-floating-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-shopping-cart"></i>
+        <div class="cart-badge" id="cart-count">0</div>
+    </button>
+
+    <!-- 🛍️ لوحة السلة الجانبية المتناسقة -->
+    <div class="cart-overlay-drawer" id="cart-overlay-drawer" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-shopping-cart"></i> Mon Panier</h3>
+            <button class="cart-close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items-container" id="cart-items-list">
+            <!-- المنتجات تضاف هنا تلقائياً -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span class="total-label">Total:</span>
+                <span class="total-amount" id="cart-total-price">0 DH</span>
+            </div>
+            <button class="checkout-btn" onclick="sendCartToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Envoyer la commande
+            </button>
+        </div>
+    </div>
+
+    <!-- نافذة تكبير الصور المخفية -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-container">
+            <button class="lightbox-close" onclick="forceCloseLightbox()"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" alt="Preview" id="lightbox-img" class="lightbox-img">
+        </div>
+    </div>
+
+    <script>
+        // أضف رقم الواتساب الخاص بك هنا لكي تعمل الأزرار والسلة بنجاح
+        const MY_WHATSAPP_NUMBER = "212781387522";
+
+        const productsData = [
+            
+    { id: "SPC-001", price: "85 DH", image: "ot1.jpg", models: ["iPhone 13 Pro"] },
+    { id: "SPC-002", price: "85 DH", image: "ot2.jpg", models: ["iPhone 13 Pro Max"] },
+    { id: "SPC-003", price: "85 DH", image: "ot3.jpg", models: ["iPhone 13 pro Max", "iPhone 17  pro"] },
+    { id: "SPC-004", price: "85 DH", image: "ot4.jpg", models: ["iphone 17 pro max", "iphone 16 pro max"] },
+    { id: "SPC-005", price: "85 DH", image: "ot5.jpg", models: ["iphone 13 pro max"] },
+    { id: "SPC-006", price: "85 DH", image: "ot6.jpg", models: ["iphone 17"] },
+    { id: "SPC-007", price: "85 DH", image: "ot7.jpg", models: ["iphone 17 pro max"] },
+    { id: "SPC-008", price: "85 DH", image: "ot8.jpg", models: ["iphone 13 pro","iphone 11"] },
+    { id: "SPC-009", price: "85 DH", image: "ot9.jpg", models: ["iphone 17 pro"] },
+    { id: "SPC-010", price: "85 DH", image: "ot10.jpg", models: ["iphone 16", "iphone 12 pro max"] },
+    { id: "SPC-011", price: "85 DH", image: "ot11.jpg", models: ["iphone 16"] },
+    { id: "SPC-012", price: "85 DH", image: "ot12.jpg", models: ["iphone 16 pro", "iphone 11 pro max"] },
+    { id: "SPC-013", price: "85 DH", image: "ot13.jpg", models: ["iphone 12", "iphone 12 pro", "iphone 15"] },
+    { id: "SPC-014", price: "85 DH", image: "ot14.jpg", models: ["iphone 15 pro"] },
+    { id: "SPC-015", price: "85 DH", image: "ot15.jpg", models: ["iphone 15", "iphone 11"] },
+    { id: "SPC-016", price: "85 DH", image: "ot16.jpg", models: ["iphone 12 pro max", "iphone 11"] },
+    { id: "SPC-017", price: "85 DH", image: "ot17.jpg", models: ["iphone 12 pro max", "iphone 11"] },
+  
+    { id: "SPC-018", price: "85 DH", image: "ot18.jpg", models: ["iphone 14 pro max"] },
+    { id: "SPC-019", price: "85 DH", image: "ot19.jpg", models: ["iphone 14 pro"] },
+    { id: "SPC-020", price: "85 DH", image: "ot20.jpg", models: ["iphone 13", "iphone 14"] },
+
+    { id: "SPC-021", price: "80 DH", image: "ot21.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
+    { id: "SPC-022", price: "80 DH", image: "ot22.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
+    { id: "SPC-023", price: "80 DH", image: "ot23.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
+    { id: "SPC-024", price: "80 DH", image: "ot24.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
+    { id: "SPC-025", price: "80 DH", image: "ot25.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
+    { id: "SPC-026", price: "80 DH", image: "ot26.jpg", models: ["iphone 12 pro max","iphone13 pro max","iphone14 pro max","iphone15 pro max"] },
+    { id: "SPC-027", price: "70 DH", image: "ot27.jpg", models: ["iphone 13","iphone 14"] },
+    { id: "SPC-028", price: "70 DH", image: "ot28.jpg", models: ["iphone 11 pro max"] },
+    { id: "SPC-029", price: "70 DH", image: "ot29.jpg", models: ["iphone 11 pro"] },
+    { id: "SPC-030", price: "90 DH", image: "ot30.jpg", models: ["iphone 13","iphone 13 pro max","iphone 13 pro","iphone 14 pro max","iphone 16 pro max"] },
+    { id: "SPC-031", price: "70 DH", image: "ot31.jpg", models: ["iphone 11","iphone 11 pro max","iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max"] },
+    { id: "SPC-032", price: "90 DH", image: "ot32.jpg", models: [""] },
+    { id: "SPC-033", price: "90 DH", image: "ot33.jpg", models: ["iphone 11","iphone 11 pro max","iphone 11 pro","iphone 12 pro","iphone 12","iphone 14","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 15","iphone 15 pro max","iphone 15 pro","iphone 14 pro","iphone 12 pro max","iphone 14 pro max ","iphone 16 pro max","iphone 16 pro","iphone 17 pro max","iphone 16 pro max","iphone 17","iphone 17 pro"] },
+    { id: "SPC-034", price: "90 DH", image: "ot34.jpg", models: ["iphone 13","iphone 14","iphone 15 pro"] },
+    { id: "SPC-035", price: "90 DH", image: "ot35.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
+    { id: "SPC-036", price: "90 DH", image: "ot36.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
+    
+    { id: "SPC-037", price: "90 DH", image: "ot37.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
+    { id: "SPC-038", price: "90 DH", image: "ot38.jpg", models: ["iphone 12","iphone 12 pro","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 13 pro max","iphone 14","iphone 14 pro","iphone 14 pro max","iphone 15","iphone 15 pro","iphone 15 pro max","iphone 16","iphone 16 pro","iphone 16 pro max","iphone 17","iphone 17 pro","iphone 17 pro max"] },
+    { id: "SPC-039", price: "80 DH", image: "ot39.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] },
+    { id: "SPC-040", price: "80 DH", image: "ot40.jpg", models: ["iphone 11","iphone 12 pro max","iphone 13","iphone 13 pro","iphone 14","iphone 14 pro","iphone 15","iphone 15 pro","iphone 15 pro max"] }
+];
+
+
+        let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
+        const gridContainer = document.getElementById('special-grid-container');
+        
+        productsData.forEach((product, index) => {
+            // منع ظهور المنتجات التي تحتوي على الحالة hidden
+            if (product.status === "hidden") return;
+
+            let optionsHTML = "";
+            product.models.forEach(model => { optionsHTML += `<option value="${model}">${model}</option>`; });
+
+            const cardHTML = `
+                <div class="product-card">
+                    <div class="img-container" ondblclick="openLightbox('${product.image}')">
+                        <img src="${product.image}" alt="Phone Case">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-sku">Code: ${product.id}</div>
+                        <div class="product-price">${product.price}</div>
+                        <div class="model-select-container">
+                            <select id="select-${index}" class="model-select">${optionsHTML}</select>
+                        </div>
+                        <div class="actions-row">
+                            <button class="order-btn" onclick="handleOrder(${index}, '${product.id}', '${product.image}')">
+                                <i class="fa-brands fa-whatsapp"></i> Order Now
+                            </button>
+                            <button class="add-to-cart-btn" onclick="addToCartDirect(${index})">
+                                <i class="fa-solid fa-cart-plus"></i> Add To Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            gridContainer.innerHTML += cardHTML;
+        });
+
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox(event) {
+            const container = document.querySelector('.lightbox-container');
+            if (!container.contains(event.target)) {
+                forceCloseLightbox();
+            }
+        }
+
+        function forceCloseLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function handleOrder(index, productId, productImage) {
+            const selectElement = document.getElementById(`select-${index}`);
+            const selectedModel = selectElement ? selectElement.value : "Default Model";
+            const fullImageUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '') + productImage;
+            
+            const message = `Hello MH phone case, I want to order this special design:\n\n` +
+                            `📸 *Product Image:* ${fullImageUrl}\n\n` +
+                            `📱 *Phone Model:* ${selectedModel}\n` +
+                            `🔢 *Product ID:* [ ${productId} ]`;
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function addToCartDirect(index) {
+            const product = productsData[index];
+            const selectElement = document.getElementById(`select-${index}`);
+            const selectedModel = selectElement ? selectElement.value : "Default Model";
+            
+            const priceNum = parseInt(product.price.replace(/[^\d]/g, '')) || 0;
+
+            const itemObject = {
+                id: product.id,
+                model: selectedModel,
+                price: priceNum,
+                priceText: product.price,
+                img: product.image
+            };
+
+            shoppingCart.push(itemObject);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+            updateCartUI();
+            toggleCart(); 
+        }
+
+        function toggleCart() {
+            document.getElementById('cart-drawer').classList.toggle('open');
+            document.getElementById('cart-overlay-drawer').classList.toggle('active');
+        }
+
+        function removeItem(index) {
+            shoppingCart.splice(index, 1);
+            localStorage.setItem('my_mh_cart', JSON.stringify(shoppingCart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = shoppingCart.length;
+            const itemsContainer = document.getElementById('cart-items-list');
+            itemsContainer.innerHTML = "";
+
+            if (shoppingCart.length === 0) {
+                itemsContainer.innerHTML = `<p class="empty-cart-text">Votre panier est vide.</p>`;
+                document.getElementById('cart-total-price').innerText = "0 DH";
+                return;
+            }
+
+            let total = 0;
+            shoppingCart.forEach((item, index) => {
+                total += item.price;
+                itemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">Code: ${item.id}</div>
+                            <div class="cart-item-meta">Modèle: ${item.model}</div>
+                            <div class="cart-item-price">${item.priceText || (item.price + " DH")}</div>
+                        </div>
+                        <button class="remove-item-btn" onclick="removeItem(${index})"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>`;
+            });
+
+            document.getElementById('cart-total-price').innerText = total + " DH";
+        }
+
+        function sendCartToWhatsApp() {
+            if (shoppingCart.length === 0) return;
+            
+            let message = `Bonjour MH phone case, I want to order these items from Special Collection:\n\n`;
+            let total = 0;
+            
+            shoppingCart.forEach((item, index) => {
+                total += item.price;
+                const baseUrl = window.location.origin + window.location.pathname.replace(/[^\/]*$/, '');
+                const fullImageUrl = baseUrl + item.img;
+                
+                message += `🔹 *Item #${index + 1}:*\n• 📱 *Model:* ${item.model}\n• 💰 *Price:* ${item.priceText || (item.price + " DH")}\n• 🔢 *Code:* [ ${item.id} ]\n• 📸 *Image Link:* ${fullImageUrl}\n\n`;
+            });
+            
+            message += `-----------------------------------------\n`;
+            message += `🏆 *Total Amount:* ${total} DH\n`;
+            message += `-----------------------------------------`;
+            
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
