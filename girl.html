@@ -104,6 +104,62 @@
             color: #333333;
         }
 
+        /* تنسيق قسم الفلترة الجديد بالإنجليزية */
+        .filter-section {
+            max-width: 480px;
+            margin: 0 auto 30px auto;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .filter-section label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .filter-select-wrapper {
+            position: relative;
+        }
+
+        .filter-select-wrapper::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff758c;
+            pointer-events: none;
+            font-size: 14px;
+        }
+
+        #main-phone-filter {
+            width: 100%;
+            padding: 12px 16px;
+            padding-right: 35px;
+            background: #ffffff;
+            border: 1px solid #ffe3e7;
+            border-radius: 14px;
+            color: #333333;
+            font-size: 13px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.02);
+            transition: 0.2s;
+            text-align: left;
+        }
+
+        #main-phone-filter:focus {
+            border-color: #ff758c;
+        }
+
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -632,6 +688,17 @@
             <span class="collection-tag">Elegant Styles</span>
             <h1 class="page-title">Suit your femininity</h1>
         </div>
+
+        <!-- إضافة أداة الفلترة بالإنجليزية والترتيب التلقائي -->
+        <div class="filter-section">
+            <label for="main-phone-filter"><i class="fa-solid fa-mobile-screen-button"></i> Choose your phone:</label>
+            <div class="filter-select-wrapper">
+                <select id="main-phone-filter" onchange="filterProductsByPhone()">
+                    <option value="all">✨ All Models</option>
+                </select>
+            </div>
+        </div>
+
         <div class="products-grid" id="girl-grid-container"></div>
     </main>
 
@@ -668,7 +735,6 @@
     <script>
         const MY_WHATSAPP_NUMBER = "212781387522"; 
 
-        // تـم إصـلاح هـذه الـمـصـفـوفـة بـالـكـامـل (إغلاق القوس عند GRL-006 وإضافة الفواصل)
         const productsData = [
             { id: "GRL-001", name: "Coquette Purple Bow", price: "60 DH", image: "girl1.jpg", models: ["iPhone 11", "iPhone 13", "iPhone 14"] },
             { id: "GRL-002", name: "Cute Pink Bow", price: "75 DH", image: "girl2.jpg", models: ["iPhone 12", "iPhone 12 Pro"] },
@@ -677,7 +743,9 @@
             { id: "GRL-005", name: "Luxury Pink GUESS", price: "80 DH", image: "girl5.jpg", models: ["iPhone 14 Pro"] },
             { id: "GRL-006", name: "Luxury Black GUESS", price: "80 DH", image: "girl6.jpg", models: ["iPhone 14 Pro Max"] },
             { id: "GRL-007", name: "Pink  Elegance PRADA", price: "90 DH", image: "girl7.jpg", models: ["iPhone 16 Pro"] },
-            { id: "GRL-008", name: "Cute Pink hurts", price: "60 DH", image: "girl8.jpg", models: ["iPhone 11"] }
+            { id: "GRL-008", name: "Cute Pink hurts", price: "60 DH", image: "girl8.jpg", models: ["iPhone 11"] },
+            { id: "GRL-009", name: "An elegant gazel like you", price: "60 DH", image: "girl9.jpg", models: ["iPhone XR","iPhone 11","iPhone 12/12 Pro","iPhone 13 Pro Max","iPhone 13 Pro","iPhone 13/14","iPhone 14 Pro Max","iPhone 15 Pro Max","iPhone 16 Pro Max"] },
+            { id: "GRL-010", name: "Cute Pink hurts", price: "80 DH", image: "girl10.jpg", models: ["iPhone XR","iPhone 11","iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max","iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max","iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max","iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max","iPhone 16", "iPhone 16 Pro", "iPhone 16 Pro Max","iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"] }
         ];
 
         let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
@@ -685,10 +753,13 @@
         
         productsData.forEach((product, index) => {
             let optionsHTML = "";
-            product.models.forEach(model => { optionsHTML += `<option value="${model}">${model}</option>`; });
+            product.models.forEach(model => { 
+                const formattedModel = model.trim().replace(/^iphone/i, 'iPhone');
+                optionsHTML += `<option value="${formattedModel}">${formattedModel}</option>`; 
+            });
 
             const cardHTML = `
-                <div class="product-card">
+                <div class="product-card" id="product-card-${index}">
                     <div class="img-container" ondblclick="openLightbox('${product.image}')">
                         <img src="${product.image}" alt="${product.name}" loading="lazy">
                     </div>
@@ -707,6 +778,45 @@
             `;
             gridContainer.innerHTML += cardHTML;
         });
+
+        // --- توليد خيارات الفلتر تلقائياً بأسماء موحدة ---
+        const uniqueModelsSet = new Set();
+        productsData.forEach(p => {
+            p.models.forEach(m => {
+                const fixedName = m.trim().replace(/^iphone/i, 'iPhone');
+                uniqueModelsSet.add(fixedName);
+            });
+        });
+
+        const sortedModels = Array.from(uniqueModelsSet).sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}));
+        const mainFilterSelect = document.getElementById('main-phone-filter');
+        sortedModels.forEach(model => {
+            mainFilterSelect.innerHTML += `<option value="${model}">${model}</option>`;
+        });
+
+        // --- دالة الفلترة البرمجية للتحكم بالكروت والـ Select الداخلي ---
+        function filterProductsByPhone() {
+            const selectedModel = document.getElementById('main-phone-filter').value;
+            
+            productsData.forEach((product, index) => {
+                const card = document.getElementById(`product-card-${index}`);
+                if (!card) return;
+
+                const cleanProductModels = product.models.map(m => m.trim().replace(/^iphone/i, 'iPhone'));
+
+                if (selectedModel === "all") {
+                    card.style.display = "flex";
+                } else {
+                    if (cleanProductModels.includes(selectedModel)) {
+                        card.style.display = "flex";
+                        const cardSelect = document.getElementById(`select-${index}`);
+                        if (cardSelect) cardSelect.value = selectedModel;
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            });
+        }
 
         updateCartUI();
 
