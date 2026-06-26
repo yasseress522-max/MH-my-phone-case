@@ -137,24 +137,23 @@
         }
 
         #main-phone-filter {
-    width: 100%;
-    padding: 12px 16px;
-    padding-right: 35px; /* يعطي مساحة للسهم الذهبي على اليمين */
-    background: #ffffff;
-    border: 1px solid #eedfc2;
-    border-radius: 14px;
-    color: #111111;
-    font-size: 13px;
-    font-weight: 600;
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.02);
-    transition: 0.2s;
-    text-align: left; /* ليصبح متناسقاً مع الاختيارات الإنجليزية */
-}
-
+            width: 100%;
+            padding: 12px 16px;
+            padding-right: 35px; /* يعطي مساحة للسهم الذهبي على اليمين */
+            background: #ffffff;
+            border: 1px solid #eedfc2;
+            border-radius: 14px;
+            color: #111111;
+            font-size: 13px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.02);
+            transition: 0.2s;
+            text-align: left; /* ليصبح متناسقاً مع الاختيارات الإنجليزية */
+        }
 
         #main-phone-filter:focus {
             border-color: #d4af37;
@@ -703,8 +702,6 @@
             <h1 class="page-title">Exclusive and unique covers</h1>
         </div>
 
-        <!-- قسم فلترة الهواتف الجديد -->
-                <!-- قسم فلترة الهواتف الجديد مترجم للإنجليزي -->
         <div class="filter-section">
             <label for="main-phone-filter"><i class="fa-solid fa-mobile-screen-button"></i> Choose your phone:</label>
             <div class="filter-select-wrapper">
@@ -714,17 +711,14 @@
             </div>
         </div>
 
-
         <div class="products-grid" id="special-grid-container"></div>
     </main>
 
-    <!-- 🛒 زر السلة العائم -->
     <button class="cart-floating-btn" onclick="toggleCart()">
         <i class="fa-solid fa-shopping-cart"></i>
         <div class="cart-badge" id="cart-count">0</div>
     </button>
 
-    <!-- 🛍️ لوحة السلة الجانبية المتناسقة -->
     <div class="cart-overlay-drawer" id="cart-overlay-drawer" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cart-drawer">
         <div class="cart-header">
@@ -743,7 +737,6 @@
         </div>
     </div>
 
-    <!-- نافذة تكبير الصور المخفية -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
         <div class="lightbox-container">
             <button class="lightbox-close" onclick="forceCloseLightbox()"><i class="fa-solid fa-xmark"></i></button>
@@ -754,59 +747,102 @@
     <script>
         const MY_WHATSAPP_NUMBER = "212781387522";
 
+        // المصفوفة مرتبة الآن هندسياً حسب تشابه الموديلات والأسعار لمنع العشوائية في العرض
         const productsData = [
+            // تجميعة: الـ iPhone 13 Pro المنفرد
             { id: "SPC-001", price: "80 DH", image: "ot1.jpg", models: ["iPhone 13 Pro"] },
+            
+            // تجميعة: الـ iPhone 13 Pro Max المنفرد
             { id: "SPC-002", price: "80 DH", image: "ot2.jpg", models: ["iPhone 13 Pro Max"] },
-            { id: "SPC-003", price: "80 DH", image: "ot3.jpg", models: ["iPhone 13 Pro Max", "iPhone 17 Pro"] },
-            { id: "SPC-004", price: "80 DH", image: "ot4.jpg", models: ["iPhone 17", "iPhone 16 Pro Max"] },
             { id: "SPC-005", price: "80 DH", image: "ot5.jpg", models: ["iPhone 13 Pro Max"] },
+            
+            // تجميعة: الـ iPhone 17 المنفرد
             { id: "SPC-006", price: "80 DH", image: "ot6.jpg", models: ["iPhone 17"] },
-            { id: "SPC-007", price: "80 DH", image: "ot7.jpg", models: ["iPhone 17 Pro Max"] },
-            { id: "SPC-008", price: "80 DH", image: "ot8.jpg", models: ["iPhone 13 Pro","iPhone 11"] },
+            
+            // تجميعة: الـ iPhone 17 Pro المنفرد
             { id: "SPC-009", price: "80 DH", image: "ot9.jpg", models: ["iPhone 17 Pro"] },
-            { id: "SPC-010", price: "80 DH", image: "ot10.jpg", models: ["iPhone 16", "iPhone 12 Pro Max"] },
+            
+            // تجميعة: الـ iPhone 17 Pro Max المنفرد
+            { id: "SPC-007", price: "80 DH", image: "ot7.jpg", models: ["iPhone 17 Pro Max"] },
+            
+            // تجميعة: الـ iPhone 16 المنفرد
             { id: "SPC-011", price: "80 DH", image: "ot11.jpg", models: ["iPhone 16"] },
-            { id: "SPC-012", price: "80 DH", image: "ot12.jpg", models: ["iPhone 16 Pro", "iPhone 11 Pro Max"] },
-            { id: "SPC-013", price: "80 DH", image: "ot13.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 15"] },
+            
+            // تجميعة: الـ iPhone 15 Pro المنفرد
             { id: "SPC-014", price: "80 DH", image: "ot14.jpg", models: ["iPhone 15 Pro"] },
+            
+            // تجميعة: الـ iPhone 14 Pro المنفرد
+            { id: "SPC-019", price: "80 DH", image: "ot19.jpg", models: ["iPhone 14 Pro"] },
+            
+            // تجميعة: الـ iPhone 14 Pro Max المنفرد
+            { id: "SPC-018", price: "80 DH", image: "ot18.jpg", models: ["iPhone 14 Pro Max"] },
+            
+            // تجميعة: الثنائيات المتقاربة (13 و 14)
+            { id: "SPC-020", price: "80 DH", image: "ot20.jpg", models: ["iPhone 13", "iPhone 14"] },
+            { id: "SPC-027", price: "70 DH", image: "ot27.jpg", models: ["iPhone 13", "iPhone 14"] },
+            
+            // تجميعة ثنائية: الـ 13 Pro Max مع الـ 17 Pro
+            { id: "SPC-003", price: "80 DH", image: "ot33.jpg", models: ["iPhone 13 Pro Max", "iPhone 17 Pro"] },
+            
+            // تجميعة ثنائية: الـ 17 مع الـ 16 Pro Max
+            { id: "SPC-004", price: "80 DH", image: "ot4.jpg", models: ["iPhone 17", "iPhone 16 Pro Max"] },
+            
+            // تجميعة ثنائية: الـ 13 Pro مع الـ 11
+            { id: "SPC-008", price: "80 DH", image: "ot8.jpg", models: ["iPhone 13 Pro", "iPhone 11"] },
+            
+            // تجميعة ثنائية: الـ 16 مع الـ 12 Pro Max
+            { id: "SPC-010", price: "80 DH", image: "ot10.jpg", models: ["iPhone 16", "iPhone 12 Pro Max"] },
+            
+            // تجميعة ثنائية: الـ 16 Pro مع الـ 11 Pro Max
+            { id: "SPC-012", price: "80 DH", image: "ot12.jpg", models: ["iPhone 16 Pro", "iPhone 11 Pro Max"] },
+            
+            // تجميعة ثنائية: الـ 15 مع الـ 11
             { id: "SPC-015", price: "80 DH", image: "ot15.jpg", models: ["iPhone 15", "iPhone 11"] },
+            
+            // تجميعة ثنائية ومتكررة: الـ 12 Pro Max مع الـ 11
             { id: "SPC-016", price: "80 DH", image: "ot16.jpg", models: ["iPhone 12 Pro Max", "iPhone 11"] },
             { id: "SPC-017", price: "80 DH", image: "ot17.jpg", models: ["iPhone 12 Pro Max", "iPhone 11"] },
-            { id: "SPC-018", price: "80 DH", image: "ot18.jpg", models: ["iPhone 14 Pro Max"] },
-            { id: "SPC-019", price: "80 DH", image: "ot19.jpg", models: ["iPhone 14 Pro"] },
-            { id: "SPC-020", price: "80 DH", image: "ot20.jpg", models: ["iPhone 13", "iPhone 14"] },
-            { id: "SPC-021", price: "80 DH", image: "ot21.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
-            { id: "SPC-022", price: "80 DH", image: "ot22.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
-            { id: "SPC-023", price: "80 DH", image: "ot23.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
-            { id: "SPC-024", price: "80 DH", image: "ot24.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
-            { id: "SPC-025", price: "80 DH", image: "ot25.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
-            { id: "SPC-026", price: "80 DH", image: "ot26.jpg", models: ["iPhone 12 Pro Max","iPhone 13 Pro Max","iPhone 14 Pro Max","iPhone 15 Pro Max"] },
-            { id: "SPC-027", price: "70 DH", image: "ot27.jpg", models: ["iPhone 13","iPhone 14"] },
+            
+            // تجميعة ثلاثية: الـ 12 والـ 12 Pro والـ 15
+            { id: "SPC-013", price: "80 DH", image: "ot13.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 15"] },
+            
+            // تجميعة موديلات الـ Pro Max الأربعة الكبار (12 حتى 15 بـ 80 درهم)
+            { id: "SPC-023", price: "80 DH", image: "ot23.jpg", models: ["iPhone 12 Pro Max", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"] },
+            { id: "SPC-024", price: "80 DH", image: "ot24.jpg", models: ["iPhone 12 Pro Max", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"] },
+            { id: "SPC-025", price: "80 DH", image: "ot25.jpg", models: ["iPhone 12 Pro Max", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"] },
+            { id: "SPC-026", price: "80 DH", image: "ot26.jpg", models: ["iPhone 12 Pro Max", "iPhone 13 Pro Max", "iPhone 14 Pro Max", "iPhone 15 Pro Max"] },
+            
+            // تجميعة القائمة الطويلة القياسية (9 موديلات بـ 80 درهم)
+            { id: "SPC-021", price: "80 DH", image: "ot21.jpg", models: ["iPhone 11", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 14", "iPhone 14 Pro", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max"] },
+            { id: "SPC-022", price: "80 DH", image: "ot22.jpg", models: ["iPhone 11", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 14", "iPhone 14 Pro", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max"] },
+            { id: "SPC-039", price: "80 DH", image: "ot39.jpg", models: ["iPhone 11", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 14", "iPhone 14 Pro", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max"] },
+            { id: "SPC-040", price: "80 DH", image: "ot40.jpg", models: ["iPhone 11", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 14", "iPhone 14 Pro", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max"] },
+            
+            // تجميعة: القوائم الشاملة الضخمة (بثمن 90 درهم)
+            { id: "SPC-035", price: "90 DH", image: "ot35.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone 16", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"] },
+            { id: "SPC-036", price: "90 DH", image: "ot36.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone 16", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"] },
+            { id: "SPC-037", price: "90 DH", image: "ot37.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone 16", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"] },
+            { id: "SPC-038", price: "90 DH", image: "ot38.jpg", models: ["iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max", "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone 16", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"] },
+            { id: "SPC-033", price: "90 DH", image: "ot33.jpg", models: ["iPhone 11", "iPhone 11 Pro Max", "iPhone 11 Pro", "iPhone 12 Pro", "iPhone 12", "iPhone 14", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 15", "iPhone 15 Pro Max", "iPhone 15 Pro", "iPhone 14 Pro", "iPhone 12 Pro Max", "iPhone 14 Pro Max", "iPhone 16 Pro Max", "iPhone 16 Pro", "iPhone 17 Pro Max", "iPhone 17", "iPhone 17 Pro"] },
+            
+            // بقية الكروت ذات القوائم المختلفة (90 درهم)
+            { id: "SPC-030", price: "90 DH", image: "ot30.jpg", models: ["iPhone 13", "iPhone 13 Pro Max", "iPhone 13 Pro", "iPhone 14 Pro Max", "iPhone 16 Pro Max"] },
+            { id: "SPC-034", price: "90 DH", image: "ot34.jpg", models: ["iPhone 13", "iPhone 14", "iPhone 15 Pro"] },
+            
+            // تجميعة: كروت الـ 70 درهم المتبقية
+            { id: "SPC-031", price: "70 DH", image: "ot31.jpg", models: ["iPhone 11", "iPhone 11 Pro Max", "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max", "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max", "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max"] },
             { id: "SPC-028", price: "70 DH", image: "ot28.jpg", models: ["iPhone 11 Pro Max"] },
-            { id: "SPC-029", price: "70 DH", image: "ot29.jpg", models: ["iPhone 11 Pro"] },
-            { id: "SPC-030", price: "90 DH", image: "ot30.jpg", models: ["iPhone 13","iPhone 13 Pro Max","iPhone 13 Pro","iPhone 14 Pro Max","iPhone 16 Pro Max"] },
-            { id: "SPC-031", price: "70 DH", image: "ot31.jpg", models: ["iPhone 11","iPhone 11 Pro Max","iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max"] },
-            { id: "SPC-032", price: "80 DH", image: "ot32.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
-            { id: "SPC-033", price: "90 DH", image: "ot33.jpg", models: ["iPhone 11","iPhone 11 Pro Max","iPhone 11 Pro","iPhone 12 Pro","iPhone 12","iPhone 14","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 15","iPhone 15 Pro Max","iPhone 15 Pro","iPhone 14 Pro","iPhone 12 Pro Max","iPhone 14 Pro Max","iPhone 16 Pro Max","iPhone 16 Pro","iPhone 17 Pro Max","iPhone 17","iPhone 17 Pro"] },
-            { id: "SPC-034", price: "90 DH", image: "ot34.jpg", models: ["iPhone 13","iPhone 14","iPhone 15 Pro"] },
-            { id: "SPC-035", price: "90 DH", image: "ot35.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
-            { id: "SPC-036", price: "90 DH", image: "ot36.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
-            { id: "SPC-037", price: "90 DH", image: "ot37.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
-            { id: "SPC-038", price: "90 DH", image: "ot38.jpg", models: ["iPhone 12","iPhone 12 Pro","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 13 Pro Max","iPhone 14","iPhone 14 Pro","iPhone 14 Pro Max","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max","iPhone 16","iPhone 16 Pro","iPhone 16 Pro Max","iPhone 17","iPhone 17 Pro","iPhone 17 Pro Max"] },
-            { id: "SPC-039", price: "80 DH", image: "ot39.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] },
-            { id: "SPC-040", price: "80 DH", image: "ot40.jpg", models: ["iPhone 11","iPhone 12 Pro Max","iPhone 13","iPhone 13 Pro","iPhone 14","iPhone 14 Pro","iPhone 15","iPhone 15 Pro","iPhone 15 Pro Max"] }
+            { id: "SPC-029", price: "70 DH", image: "ot29.jpg", models: ["iPhone 11 Pro"] }
         ];
 
         let shoppingCart = JSON.parse(localStorage.getItem('my_mh_cart')) || [];
         const gridContainer = document.getElementById('special-grid-container');
         
-        // حلقة لبناء واجهة المنتجات وكروت العرض
         productsData.forEach((product, index) => {
             if (product.status === "hidden") return;
 
             let optionsHTML = "";
             product.models.forEach(model => { 
-                // توحيد شكل النصوص المكتوبة لتظهر بشكل جميل
                 const formattedModel = model.trim().replace(/^iphone/i, 'iPhone');
                 optionsHTML += `<option value="${formattedModel}">${formattedModel}</option>`; 
             });
@@ -836,26 +872,22 @@
             gridContainer.innerHTML += cardHTML;
         });
 
-        // --- توليد خيارات الفلتر تلقائياً من موديلات المنتجات المتاحة ---
         const uniqueModelsSet = new Set();
         productsData.forEach(p => {
             if (p.status !== "hidden") {
                 p.models.forEach(m => {
-                    // جعل الحرف الأول كبير لإلغاء أي تكرار ناتج عن الحروف الكبيرة والصغيرة في المصفوفة
                     const fixedName = m.trim().replace(/^iphone/i, 'iPhone');
                     uniqueModelsSet.add(fixedName);
                 });
             }
         });
 
-        // ترتيب أسماء الهواتف منطقياً قبل وضعها في الفلتر
         const sortedModels = Array.from(uniqueModelsSet).sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}));
         const mainFilterSelect = document.getElementById('main-phone-filter');
         sortedModels.forEach(model => {
             mainFilterSelect.innerHTML += `<option value="${model}">${model}</option>`;
         });
 
-        // --- دالة الفلترة الذكية ---
         function filterProductsByPhone() {
             const selectedModel = document.getElementById('main-phone-filter').value;
             
@@ -863,7 +895,6 @@
                 const card = document.getElementById(`product-card-${index}`);
                 if (!card) return;
 
-                // تحويل الموديلات داخل المنتج الحالي لنفس الصيغة الموحدة للمقارنة
                 const cleanProductModels = product.models.map(m => m.trim().replace(/^iphone/i, 'iPhone'));
 
                 if (selectedModel === "all") {
@@ -871,7 +902,6 @@
                 } else {
                     if (cleanProductModels.includes(selectedModel)) {
                         card.style.display = "flex";
-                        // تحويل خيار المنتج الداخلي تلقائياً ليتوافق مع اختيار الفلتر العلوي
                         const cardSelect = document.getElementById(`select-${index}`);
                         if (cardSelect) cardSelect.value = selectedModel;
                     } else {
@@ -881,7 +911,6 @@
             });
         }
 
-        // تحضير الـ UI للسلة عند بدء تحميل الصفحة
         updateCartUI();
 
         function openLightbox(imageSrc) {
