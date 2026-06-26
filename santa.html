@@ -161,28 +161,30 @@
         main {
             flex: 1;
             padding: 0 5% 50px 5%;
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
 
+        /* تحويل الحاوية إلى Grid بدلاً من Flex العمودي الضيق */
         .brands-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             width: 100%;
-            max-width: 480px;
+            max-width: 800px; /* فتح العرض ليتسع لبطاقتين متجاورتين */
         }
 
         .product-card {
             background: #ffffff;
             border: 1px solid rgba(212, 203, 187, 0.5);
             border-radius: 28px;
-            padding: 24px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 30px 60px rgba(26, 54, 43, 0.03);
+            height: 100%;
         }
 
         .product-card:hover {
@@ -193,11 +195,11 @@
 
         .img-container {
             width: 100%;
-            height: 400px;
+            height: 340px; /* تعديل الطول الافتراضي ليتناسب مع التوزيع الجديد */
             border-radius: 20px;
             overflow: hidden;
             background: #faf9f6;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             position: relative;
             cursor: zoom-in;
             border: 1px solid #edeae4;
@@ -218,6 +220,7 @@
             display: flex;
             flex-direction: column;
             text-align: left;
+            flex-grow: 1;
         }
 
         .product-sku {
@@ -231,37 +234,38 @@
 
         .product-name {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 19px;
+            font-size: 16px;
             font-weight: 800;
             color: #1a362b;
             margin-bottom: 6px;
             line-height: 1.3;
+            min-height: 42px; /* الحفاظ على محاذاة العناصر حتى لو اختلف طول النص */
         }
 
         .product-price {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             color: #c5a059;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .color-selector {
             display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
+            gap: 8px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
             background: #faf9f6;
-            padding: 10px;
-            border-radius: 16px;
+            padding: 8px;
+            border-radius: 14px;
             border: 1px solid #edeae4;
         }
 
         .color-dot {
-            width: 32px;
-            height: 32px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
             cursor: pointer;
-            border: 3px solid #ffffff;
+            border: 2px solid #ffffff;
             box-shadow: 0 0 0 1px #d4cbbb;
             transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -271,23 +275,24 @@
         }
 
         .color-dot.active {
-            box-shadow: 0 0 0 2.5px #1a362b;
-            transform: scale(1.15);
+            box-shadow: 0 0 0 2px #1a362b;
+            transform: scale(1.1);
         }
 
         .model-select-container {
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             position: relative;
+            margin-top: auto; /* دفع القائمة المنسدلة والزر لأسفل لتناسق المحاذاة */
         }
 
         .model-select {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 14px;
             background: #faf9f6;
             border: 1px solid #edeae4;
-            border-radius: 14px;
+            border-radius: 12px;
             color: #1a2421;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             outline: none;
             cursor: pointer;
@@ -307,12 +312,12 @@
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
-            right: 18px;
+            right: 14px;
             top: 50%;
             transform: translateY(-50%);
             color: #1a362b;
             pointer-events: none;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .order-btn {
@@ -320,9 +325,9 @@
             color: #ffffff;
             border: 1px solid #c5a059;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 14px;
-            font-size: 14px;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 13px;
             font-weight: 700;
             text-align: center;
             display: flex;
@@ -636,28 +641,28 @@
             .hero-folder h2 { font-size: 1.9rem; }
             .hero-folder p { font-size: 12px; }
             .promo-badge { font-size: 10px; padding: 4px 12px; }
-            main { padding: 0 4% 30px 4%; }
-            .product-card { padding: 16px; border-radius: 24px; }
-            .img-container { height: 340px; border-radius: 16px; margin-bottom: 16px; }
-            .product-name { font-size: 18px; }
-            .product-price { font-size: 16px; margin-bottom: 16px; }
-            .color-dot { width: 28px; height: 28px; }
-            .color-selector { padding: 8px; gap: 8px; margin-bottom: 16px; }
-            .model-select { padding: 12px; font-size: 12px; border-radius: 12px; }
-            .order-btn { padding: 12px; font-size: 13px; border-radius: 12px; }
-            .lightbox-close { top: auto; bottom: -60px; right: 50%; transform: translateX(50%); }
+            main { padding: 0 3% 30px 3%; }
             
-            .cart-drawer {
-                width: 100%;
-                right: -100%;
+            /* تعديل الـ Grid على الهاتف لعرض بطاقتين جنبًا إلى جنب مع تقليص المسافات */
+            .brands-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
             }
-            .cart-floating-btn {
-                bottom: 15px;
-                right: 15px;
-                width: 52px;
-                height: 52px;
-                font-size: 18px;
-            }
+
+            .product-card { padding: 10px; border-radius: 18px; }
+            .img-container { height: 185px; border-radius: 12px; margin-bottom: 10px; }
+            .product-sku { font-size: 9px; }
+            .product-name { font-size: 12px; min-height: 32px; margin-bottom: 4px; }
+            .product-price { font-size: 12px; margin-bottom: 10px; }
+            .color-dot { width: 20px; height: 20px; border-width: 1.5px; }
+            .color-selector { padding: 5px; gap: 5px; margin-bottom: 10px; border-radius: 10px; }
+            .model-select { padding: 8px 20px 8px 8px; font-size: 11px; border-radius: 8px; }
+            .model-select-container::after { right: 10px; font-size: 11px; }
+            .order-btn { padding: 9px; font-size: 11px; border-radius: 8px; gap: 4px; }
+            
+            .lightbox-close { top: auto; bottom: -60px; right: 50%; transform: translateX(50%); }
+            .cart-drawer { width: 100%; right: -100%; }
+            .cart-floating-btn { bottom: 15px; right: 15px; width: 52px; height: 52px; font-size: 18px; }
         }
     </style>
 </head>
@@ -713,17 +718,15 @@
 
     <script>
         const MY_WHATSAPP_NUMBER = "212781387522";
-        const iphoneModelsB = 
-        [
-    "iPhone 11",
-    "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max",
-    "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max",
-    "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max",
-    "iPhone 15 Pro Max",
-    "iPhone 16 Pro Max",
-    "iPhone 17 Pro", "iPhone 17 Pro Max"
-];
-
+        const iphoneModelsB = [
+            "iPhone 11",
+            "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max",
+            "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max",
+            "iPhone 14", "iPhone 14 Pro", "iPhone 14 Pro Max",
+            "iPhone 15 Pro Max",
+            "iPhone 16 Pro Max",
+            "iPhone 17 Pro", "iPhone 17 Pro Max"
+        ];
 
         const iphoneModels = [
             "iPhone X", "iPhone XR", "iPhone XS", "iPhone XS Max",
@@ -732,7 +735,8 @@
             "iPhone 13", "iPhone 13 Pro", "iPhone 13 Pro Max",
             "iPhone 14", "iPhone 14 Plus", "iPhone 14 Pro", "iPhone 14 Pro Max",
             "iPhone 15", "iPhone 15 Plus", "iPhone 15 Pro", "iPhone 15 Pro Max",
-            "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max", "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"
+            "iPhone 16", "iPhone 16 Plus", "iPhone 16 Pro", "iPhone 16 Pro Max", 
+            "iPhone 17", "iPhone 17 Pro", "iPhone 17 Pro Max"
         ];
 
         const productsData = [
