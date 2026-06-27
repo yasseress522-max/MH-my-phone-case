@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght=500;600;700&family=Playfair+Display:ital,wght=1,500;1,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -730,9 +730,8 @@
     </div>
 
     <script>
-        const MY_WHATSAPP_NUMBER = "+212 619-517752"; 
+        const MY_WHATSAPP_NUMBER = "212619517752"; 
 
-        // تم تنظيف الموديلات هنا بالكامل لكي لا تحتوي على قيم منفصلة ومكررة مثل ["iPhone 13", "iPhone 14"]
         const productsData = [
             { id: "GRL-001", name: "Coquette Purple Bow", price: "60 DH", image: "girl1.jpg", models: ["iPhone 11", "iPhone 13 / 14"] },
             { id: "GRL-002", name: "Cute Pink Bow", price: "75 DH", image: "girl2.jpg", models: ["iPhone 12 / 12 Pro"] },
@@ -772,7 +771,6 @@
             return name;
         }
 
-        // بناء الكروت والتأكد من توحيد الخيارات
         productsData.forEach((product, index) => {
             let optionsHTML = "";
             const uniqueCardModels = Array.from(new Set(product.models.map(m => formatModelName(m))));
@@ -802,7 +800,6 @@
             gridContainer.innerHTML += cardHTML;
         });
 
-        // توليد قائمة الفلتر العلوية لتكون مدمجة ومرتبة تماماً من الأقدم للأحدث بدون أي تكرار وبطريقة ذكية
         const filterModelsSet = new Set();
         productsData.forEach(p => {
             p.models.forEach(m => {
@@ -810,43 +807,29 @@
             });
         });
 
-        // دالة ترتيب خارقة تعتمد على الوزن الفعلي لكل جيل آيفون
         const sortedModels = Array.from(filterModelsSet).sort((a, b) => {
             const getModelWeight = (name) => {
                 if (/XR/i.test(name)) return 10;
                 if (/11/i.test(name)) return 11;
-                
-                // عائلة 12
-                if (/12\s*\/\s*12\s*Pro/i.test(name)) return 12.0; // مدمج يظهر أولاً
+                if (/12\s*\/\s*12\s*Pro/i.test(name)) return 12.0; 
                 if (/12\s*Pro\s*Max/i.test(name)) return 12.5;
-                
-                // عائلة 13 و 14
-                if (/13\s*\/\s*14/i.test(name)) return 13.0; // مدمج يظهر أولاً
+                if (/13\s*\/\s*14/i.test(name)) return 13.0; 
                 if (/13\s*Pro$/i.test(name)) return 13.3;
                 if (/13\s*Pro\s*Max/i.test(name)) return 13.5;
-                
                 if (/14\s*Pro$/i.test(name)) return 14.3;
                 if (/14\s*Pro\s*Max/i.test(name)) return 14.5;
-                
-                // عائلة 15
                 if (/15$/i.test(name)) return 15.0;
                 if (/15\s*Plus/i.test(name)) return 15.1;
                 if (/15\s*Pro$/i.test(name)) return 15.3;
                 if (/15\s*Pro\s*Max/i.test(name)) return 15.5;
-                
-                // عائلة 16
                 if (/16$/i.test(name)) return 16.0;
                 if (/16\s*Pro$/i.test(name)) return 16.3;
                 if (/16\s*Pro\s*Max/i.test(name)) return 16.5;
-
-                // عائلة 17
                 if (/17$/i.test(name)) return 17.0;
                 if (/17\s*Pro$/i.test(name)) return 17.3;
                 if (/17\s*Pro\s*Max/i.test(name)) return 17.5;
-                
                 return 99;
             };
-
             return getModelWeight(a) - getModelWeight(b);
         });
 
@@ -855,7 +838,6 @@
             mainFilterSelect.innerHTML += `<option value="${model}">${model}</option>`;
         });
 
-        // دالة الفلترة الذكية بالخيار المدمج الموحد
         function filterProductsByPhone() {
             const selectedModel = document.getElementById('main-phone-filter').value;
             

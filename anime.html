@@ -221,7 +221,7 @@
             bottom: 10px;
             left: 50%;
             transform: translateX(-50%) translateY(10px);
-            background: rgba(255, 51, 68, 0.9); /* خلفية التلميح باللون延伸 الأحمر */
+            background: rgba(255, 51, 68, 0.9); /* خلفية التلميح باللون الأحمر */
             color: #fff;
             font-size: 10px;
             padding: 4px 12px;
@@ -792,7 +792,7 @@
     </div>
 
     <script>
-        const MY_WHATSAPP_NUMBER = "+212 619-517752"; 
+        const MY_WHATSAPP_NUMBER = "212619517752"; 
 
         // قائمة الموديلات الموحدة لجميع الهواتف بناءً على السكرينات المرفقة
         const commonModels = [
@@ -865,14 +865,32 @@
         // --- توليد قائمة خيارات الفلتر تلقائياً من الكروت الظاهرة فقط ---
         const uniqueModelsSet = new Set();
         productsData.forEach(product => {
-            // نقرأ فقط موديلات الهواتف الخاصة بالمنتجات غير المخفية
             if (product.image !== "hidden") {
                 product.models.forEach(model => uniqueModelsSet.add(model.trim()));
             }
         });
 
-        // ترتيب الموديلات وتوليد الخيارات في قائمة الفلتر
-        const sortedModels = Array.from(uniqueModelsSet).sort((a, b) => a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'}));
+        // ترتيب الموديلات تصاعدياً بشكل منطقي فخم (يعتمد على أرقام الآيفون)
+        const sortedModels = Array.from(uniqueModelsSet).sort((a, b) => {
+            const getModelWeight = (name) => {
+                if (/XR/i.test(name)) return 10;
+                if (/XS\s*Max/i.test(name)) return 10.5;
+                if (/11\s*Pro\s*Max/i.test(name)) return 11.5;
+                if (/11\s*Pro/i.test(name)) return 11.3;
+                if (/11/i.test(name)) return 11.0;
+                if (/12\s*Pro\s*Max/i.test(name)) return 12.5;
+                if (/12\s*Pro/i.test(name)) return 12.3;
+                if (/12/i.test(name)) return 12.0;
+                if (/13\s*Pro\s*Max/i.test(name)) return 13.5;
+                if (/13/i.test(name)) return 13.0;
+                if (/14\s*Pro\s*Max/i.test(name)) return 14.5;
+                if (/14/i.test(name)) return 14.0;
+                if (/15\s*Pro\s*Max/i.test(name)) return 15.5;
+                return 99;
+            };
+            return getModelWeight(a) - getModelWeight(b);
+        });
+
         const mainFilterSelect = document.getElementById('main-phone-filter');
         sortedModels.forEach(model => {
             mainFilterSelect.innerHTML += `<option value="${model}">${model}</option>`;
@@ -883,7 +901,7 @@
             const selectedModel = mainFilterSelect.value;
             
             productsData.forEach((product, index) => {
-                if (product.image === "hidden") return; // تجاهل الكروت المخفية تماماً
+                if (product.image === "hidden") return; 
                 
                 const card = document.getElementById(`card-${index}`);
                 if (!card) return;
@@ -893,7 +911,6 @@
                 } else {
                     if (product.models.includes(selectedModel)) {
                         card.style.display = "flex";
-                        // مزامنة القائمة المنسدلة داخل الكارت فوراً مع الاختيار العلوي
                         const cardSelect = document.getElementById(`select-${index}`);
                         if (cardSelect) cardSelect.value = selectedModel;
                     } else {
