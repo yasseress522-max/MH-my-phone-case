@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-JY9C9J5R11"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-JY9C9J5R11'); </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JY9C9J5R11"></script> 
+    <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', 'G-JY9C9J5R11'); 
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MH SILICON COLLECTION</title>
@@ -9,11 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <link rel="preload" href="iphone14.html" as="document">
-<link rel="preload" href="iphone15.html" as="document">
-<!-- كرر الأمر لبقية الملفات الخمسة -->
+    <link rel="preload" href="iphone14.html" as="document">
+    <link rel="preload" href="iphone15.html" as="document">
   
-    
     <style>
         * {
             margin: 0;
@@ -406,7 +410,6 @@
             color: #0a1f1c;
         }
 
-        /* ==================== تصاميم السلة الفاخرة المشتركة ==================== */
         .cart-floating-btn {
             position: fixed;
             bottom: 25px;
@@ -690,7 +693,6 @@
         <div class="grid-series hidden-until-ready" id="series-grid-container"></div>
     </main>
 
-    <!-- نافذة التخصيص المنبثقة -->
     <div class="modal-overlay" id="product-modal-overlay" onclick="closeModalOnOverlay(event)">
         <div class="modal-card">
             <button class="close-modal-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -711,18 +713,15 @@
         </div>
     </div>
 
-    <!-- نافذة ملء الشاشة لعرض الصورة المكبرة -->
     <div class="zoom-overlay" id="image-zoom-overlay" onclick="closeZoom()">
         <img src="" id="zoomed-img-element" alt="Zoomed Product View">
     </div>
 
-    <!-- زر السلة العائمة المحدث -->
     <button class="cart-floating-btn hidden-until-ready" id="cart-floating-button" onclick="toggleCart()">
         <i class="fa-solid fa-shopping-cart"></i>
         <div class="cart-badge" id="cart-count">0</div>
     </button>
 
-    <!-- الـ Drawers والـ Overlays المحدثة للسلة -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cart-drawer">
         <div class="cart-header">
@@ -859,8 +858,8 @@
                     { name: "Crimson / Dark Red", hfxName: "Crimson HFX", hex: "#A8122D", price: "39 DH", img: "16m3.jpg", isHidden: false },
                     { name: "Red", hfxName: "Red HFX", hex: "red", price: "39 DH", img: "16m6.jpg", isHidden: false },
                     { name: "Green", hfxName: "Green HFX", hex: "#00C34F", price: "39 DH", img: "16m7.jpg", isHidden: false },
-                    { name: "Blue", hfxName: "Blue HFX", hex: "blue", price: "16m5.jpg", isHidden: false },
-                    { name: "Khaki / Beige", hfxName: "Khaki/Beige HFX", hex: "#DDD4B1", price: "16m1.jpg", isHidden: false },
+                    { name: "Blue", hfxName: "Blue HFX", hex: "blue", price: "39 DH", img: "16m5.jpg", isHidden: false }, // ✅ تم الإصلاح هنا
+                    { name: "Khaki / Beige", hfxName: "Khaki/Beige HFX", hex: "#DDD4B1", price: "39 DH", img: "16m1.jpg", isHidden: false }, // ✅ تم الإصلاح هنا
                     { name: "Purple", hfxName: "Purple HFX", hex: "#9B7EE2", price: "39 DH", img: "16m2.jpg", isHidden: false },
                     { name: "Burgundy / Dark Red", hfxName: "Burgundy HFX", hex: "#ce2029", price: "39 DH", img: "16m8.jpg", isHidden: true }
                 ]
@@ -880,7 +879,7 @@
                 colors: [
                     { name: "Off White", hfxName: "Off White HFX", hex: "#E5E3D9", price: "39 DH", img: "17m3.jpg", isHidden: false },
                     { name: "Brown / Tan", hfxName: "Brown/Tan HFX", hex: "#A9784E", price: "39 DH", img: "17m1.jpg", isHidden: false },
-                    { name: "Orange / Coral", hfxName: "Orange/Coral HFX", hex: "#D84B16", price: "17m2.jpg", isHidden: false }
+                    { name: "Orange / Coral", hfxName: "Orange/Coral HFX", hex: "#D84B16", price: "39 DH", img: "17m2.jpg", isHidden: false } // ✅ تم الإصلاح هنا
                 ]
             }
         ];
@@ -1081,6 +1080,16 @@
         function sendCartToWhatsApp() {
             if (shoppingCart.length === 0) return;
             
+            const result = calculateTotal();
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'click_whatsapp_order', {
+                    'event_category': 'Checkout',
+                    'event_label': 'Order Now WhatsApp',
+                    'value': result.total
+                });
+            }
+            
             let message = `Bonjour My MH phone case, I want to order these items:\n\n`;
             
             shoppingCart.forEach((item, index) => {
@@ -1093,7 +1102,6 @@
                 }
             });
             
-            const result = calculateTotal();
             message += `-----------------------------------------\n🏆 *Total Order Amount:* ${result.total} DH\n-----------------------------------------`;
             window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
         }
