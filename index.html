@@ -29,6 +29,8 @@
                 catDesc5: "For lovers of GOYARD",
                 catTitle6: "Girl Collection",
                 catDesc6: "Covers that suit your femininity and add elegance to your life.",
+                catTitle7: "Phone Accessories",
+                catDesc7: "Complete your look with premium essential mobile tools.",
                 btnText: "Explore now",
                 footFeat1: "Fast Shipping to All Cities",
                 footFeat2: "Cash on Delivery (COD)",
@@ -52,6 +54,8 @@
                 catDesc5: "Pour les amoureux de GOYARD",
                 catTitle6: "Collection Fille",
                 catDesc6: "Des coques qui correspondent à votre féminité et ajoutent de l'élégance à votre vie.",
+                catTitle7: "Accessoires de Téléphone",
+                catDesc7: "Complétez votre style avec des outils mobiles indispensables.",
                 btnText: "Explorer maintenant",
                 footFeat1: "Livraison rapide dans toutes les villes",
                 footFeat2: "Paiement à la livraison (COD)",
@@ -75,6 +79,8 @@
                 catDesc5: "لعشاق ومحبي ماركة غويارد",
                 catTitle6: "تشكيلة البنات",
                 catDesc6: "أغطية تناسب أنوثتك وتضفي لمسة من الأناقة على حياتك.",
+                catTitle7: "إكسسوارات الهواتف",
+                catDesc7: "أكمل أناقة هاتفك مع تشكيلة مستلزمات الهواتف المميزة.",
                 btnText: "اكتشف الآن",
                 footFeat1: "شحن سريع لجميع المدن المغربية",
                 footFeat2: "الدفع عند الاستلام (COD)",
@@ -112,7 +118,7 @@
                 if (heroTitleEl) heroTitleEl.innerHTML = currentData.heroTitle;
                 if (heroSubtitleEl) heroSubtitleEl.innerText = currentData.heroSubtitle;
                 
-                for (let i = 1; i <= 6; i++) {
+                for (let i = 1; i <= 7; i++) {
                     const tEl = document.getElementById(`catTitle${i}`);
                     const dEl = document.getElementById(`catDesc${i}`);
                     if (tEl) tEl.innerText = currentData[`catTitle${i}`];
@@ -786,6 +792,17 @@
                 <div class="category-content">
                     <div class="category-title" id="catTitle6">Girl Collection</div>
                     <div class="category-desc" id="catDesc6">Covers that suit your femininity and add elegance to your life.</div>
+                    <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+            </a>
+
+            <!-- 7. Phone Accessories (البطاقة الجديدة التي تمت إضافتها) -->
+            <a href="icce.html" class="category-card">
+                <!-- تذكّر تغيير اسم الصورة accessories.jpg للصورة المناسبة لديك في الملفات -->
+                <img src="icce.jpg" alt="Phone Accessories" class="bg-img">
+                <div class="category-content">
+                    <div class="category-title" id="catTitle7">Phone Accessories</div>
+                    <div class="category-desc" id="catDesc7">Complete your look with premium essential mobile tools.</div>
                     <div class="category-link-text"><span class="btn-text">Explore now</span> <i class="fa-solid fa-arrow-right"></i></div>
                 </div>
             </a>
